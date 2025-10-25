@@ -43,71 +43,57 @@
             -ms-overflow-style: none;scrollbar-width: none;}
         .scroll-container::-webkit-scrollbar {
             display: none;}
+    /* Sidebar collapse behavior: when body has .sidebar-collapsed hide the sidebar and reset main margin */
+    body.sidebar-collapsed #sidebar {
+      display: none !important;
+    }
+    body.sidebar-collapsed main {
+      margin-left: 0 !important;
+    }
+    /* Edge toggle button: hidden by default, visible when sidebar is collapsed */
+    #sidebarEdgeToggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    body.sidebar-collapsed #sidebarEdgeToggle {
+      display: flex !important;
+    }
+    /* transition for smoother collapse */
+    main {
+      transition: margin-left 0.18s ease;
+    }
     </style>
+    
 </head>
 <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark px-4 sm:px-6 lg:px-8 py-3">
-<div class="max-w-7xl mx-auto flex items-center justify-between whitespace-nowrap">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary text-2xl">science</span>
-<h2 class="text-text-light dark:text-text-dark text-lg font-bold tracking-[-0.015em]">Dr. A.A. Kafy</h2>
-</div>
-<nav class="hidden md:flex items-center gap-4 lg:gap-6 overflow-x-auto">
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#about">About</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#education">Education</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#fellowships">Fellowships</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#research">Research</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#experience">Experience</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#workshops">Workshops</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#services">Services</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#publications">Publications</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#gallery">Gallery</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#skills">Skills</a>
-<a class="text-sm font-medium leading-normal hover:text-primary" href="#contact">Contact</a>
-</nav>
-<div class="flex gap-2">
-<button id="mobile-menu-button" class="md:hidden flex items-center justify-center rounded-lg h-10 w-10 bg-primary/20 dark:bg-primary/30 text-primary">
-  <span class="material-symbols-outlined">menu</span>
-</button>
-<a class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary/20 dark:bg-primary/30 text-primary gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5" href="mailto:abdullaalkafy@utexas.edu">
-<span class="material-symbols-outlined text-primary text-xl">email</span>
-</a>
-<a class="hidden sm:flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary/20 dark:bg-primary/30 text-primary gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5" href="#">
-<span class="material-symbols-outlined text-primary text-xl">person</span>
-</a>
-<a class="hidden sm:flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary/20 dark:bg-primary/30 text-primary gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5" href="#">
-<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-</a>
-</div>
-</div>
-<!-- Mobile Navigation Menu -->
-<div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-background-light/95 dark:bg-background-dark/95 md:hidden">
-  <div class="flex flex-col h-full p-6">
-    <div class="flex justify-between items-center mb-8">
-      <h2 class="text-xl font-bold">Menu</h2>
-      <button id="mobile-menu-close" class="p-2 rounded-full bg-primary/10 text-primary">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-    </div>
-    <nav class="flex flex-col gap-6">
-      <a class="text-lg font-medium hover:text-primary" href="#about">About</a>
-      <a class="text-lg font-medium hover:text-primary" href="#education">Education</a>
-      <a class="text-lg font-medium hover:text-primary" href="#fellowships">Fellowships</a>
-      <a class="text-lg font-medium hover:text-primary" href="#research">Research</a>
-      <a class="text-lg font-medium hover:text-primary" href="#experience">Experience</a>
-      <a class="text-lg font-medium hover:text-primary" href="#workshops">Workshops</a>
-      <a class="text-lg font-medium hover:text-primary" href="#services">Services</a>
-      <a class="text-lg font-medium hover:text-primary" href="#publications">Publications</a>
-      <a class="text-lg font-medium hover:text-primary" href="#gallery">Gallery</a>
-      <a class="text-lg font-medium hover:text-primary" href="#skills">Skills</a>
-      <a class="text-lg font-medium hover:text-primary" href="#contact">Contact</a>
-    </nav>
+
+<!-- Sidebar (visible on md+) -->
+<aside id="sidebar" class="hidden md:fixed md:inset-y-0 md:left-0 md:w-64 md:flex md:flex-col md:py-8 md:px-6 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark">
+  <div class="flex items-center gap-3 mb-6 relative">
+    <span class="material-symbols-outlined text-primary text-2xl">science</span>
+    <button id="sidebarToggle" aria-expanded="true" title="Collapse sidebar" class="toggle-btn hidden md:inline-flex items-center justify-center p-1 ml-auto rounded-md bg-primary/10 text-primary">
+      <span id="sidebarToggleIcon" class="material-symbols-outlined">chevron_left</span>
+    </button>
   </div>
-</div>
-</header>
-<main class="flex flex-col max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 gap-12">
+  <nav class="flex flex-col gap-3">
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#about">About</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#education">Education</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#research-experience">Academic Appointments</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#experience">Industrial Appointments</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#publications">Publication</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#fellowships">Fellowships</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#fellowships">Awards &amp; Research Grants</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#workshops">Workshops</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#teaching">Presentations &amp; Certifications</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#services">Service</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary" href="#contact">Contact</a>
+  </nav>
+</aside>
+
+<main class="flex flex-col max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 gap-12 md:ml-64">
 <section class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left" id="hero">
 <div 
   class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-40 w-40 shadow-lg" 
@@ -152,74 +138,137 @@
   <p class="text-gray-600 dark:text-gray-300">
     Professionally, I have served as a Graduate Teaching Assistant and held roles as an Urban Planner, GIS Specialist, and Research Consultant with organizations including ICLEI South Asia, Rajshahi Development Authority, and B & F Company Ltd. My work has contributed to climate resilience planning, urban sustainability, and environmental management across South Asia. I have authored over 40 peer-reviewed publications and regularly review for leading journals such as Remote Sensing of Environment, Sustainable Cities and Society, and Journal of Environmental Management.
   </p>
-</div>
-<div class="mt-5 flex flex-wrap gap-2">
-  <a href="https://liberalarts.utexas.edu/geography/gradstudents/ak48749" target="_blank" class="inline-flex items-center text-primary hover:underline">
-    <span class="material-symbols-outlined text-sm mr-1">school</span>
-    University Profile
-  </a>
-  <a href="https://scholar.google.com/citations?user=vkBgMkIAAAAJ&hl=en" target="_blank" class="inline-flex items-center text-primary hover:underline">
-    <span class="material-symbols-outlined text-sm mr-1">book</span>
-    Google Scholar
-  </a>
-  <a href="https://www.linkedin.com/in/abdulla-alkafy/" target="_blank" class="inline-flex items-center text-primary hover:underline">
-    <span class="material-symbols-outlined text-sm mr-1">work</span>
-    LinkedIn
-  </a>
-  <a href="https://www.researchgate.net/profile/Abdulla-Al-Kafy-2" target="_blank" class="inline-flex items-center text-primary hover:underline">
-    <span class="material-symbols-outlined text-sm mr-1">co_present</span>
-    ResearchGate
-  </a>
-  <a href="https://www.facebook.com/Kafy92" target="_blank" class="inline-flex items-center text-primary hover:underline">
-    <span class="material-symbols-outlined text-sm mr-1">public</span>
-    Facebook
-  </a>
-  <a href="https://orcid.org/0000-0002-7544-5165" target="_blank" class="inline-flex items-center text-primary hover:underline">
-    <span class="material-symbols-outlined text-sm mr-1">tag</span>
-    ORCID
-  </a>
-  <a href="https://www.scopus.com/authid/detail.uri?authorId=57210159755" target="_blank" class="inline-flex items-center text-primary hover:underline">
-    <span class="material-symbols-outlined text-sm mr-1">menu_book</span>
-    Scopus
-  </a>
+  
+  <!-- Added: Principal Interests, Contact, and Social Links (placeholders) -->
+  <div class="mt-4">
+    <h4 class="font-semibold text-primary">Principal Interests</h4>
+    <div class="flex gap-2 flex-wrap mt-2">
+      <span class="flex h-8 items-center rounded-lg bg-primary/20 text-primary px-3 text-sm">Remote Sensing for Artificial Intelligence</span>
+      <span class="flex h-8 items-center rounded-lg bg-primary/20 text-primary px-3 text-sm">Urban Geo Analytics</span>
+      <span class="flex h-8 items-center rounded-lg bg-primary/20 text-primary px-3 text-sm">Geospatial AI (GeoAI)</span>
+      <span class="flex h-8 items-center rounded-lg bg-primary/20 text-primary px-3 text-sm">Environmental Generative AI</span>
+      <span class="flex h-8 items-center rounded-lg bg-primary/20 text-primary px-3 text-sm">Machine Learning / Deep Learning</span>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <h4 class="font-semibold text-primary">Contact</h4>
+    <p class="text-gray-600 dark:text-gray-300 mt-2">
+      <a href="mailto:abdullaalkafy@utexas.edu" class="text-primary hover:underline">abdullaalkafy@utexas.edu</a>
+      <span class="mx-2 text-gray-400">•</span>
+      <a href="mailto:abdulla-al.kafy@localpathways.org" class="text-primary hover:underline">abdulla-al.kafy@localpathways.org</a>
+    </p>
+  </div>
+
+  <div class="mt-4">
+    <h4 class="font-semibold text-primary">Profiles</h4>
+    <div class="flex items-center gap-3 mt-2">
+      <a href="https://scholar.google.com/citations?user=vkBgMkIAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" class="inline-flex items-center">
+       <img src="site-assets/Google_Scholar.png" alt="Google Scholar" class="w-14 h-14 rounded-full overflow-hidden"/>
+  
+      </a>
+
+      <a href="https://www.linkedin.com/in/abdulla-alkafy/" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-flex items-center">
+       <img src="site-assets/linkedin.png" alt="LinkedIn" class="w-12 h-12 rounded-full overflow-hidden"/>
+  
+      </a>
+
+      <a href="https://www.researchgate.net/profile/Abdulla-Al-Kafy-2?ev=hdr_xprf" target="_blank" rel="noopener" aria-label="ResearchGate" class="inline-flex items-center">
+        <img src="site-assets\reseaarchgate.png" alt="ResearchGate" class="w-12 h-12 rounded-full overflow-hidden"/>
+  
+      </a>
+
+      <a href="https://www.facebook.com/Kafy92" target="_blank" rel="noopener" aria-label="Facebook" class="inline-flex items-center">
+            <img src="site-assets/facebook.png" alt="ORCID" class="w-12 h-12 rounded-full overflow-hidden"/>
+  
+      </a>
+
+      <a href="https://orcid.org/0000-0002-7544-5165" target="_blank" rel="noopener" aria-label="ORCID" class="inline-flex items-center">
+        <img src="site-assets/orcid.svg" alt="ORCID" class="w-12 h-12 rounded-full overflow-hidden"/>
+      </a>
+
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=57210159755" target="_blank" rel="noopener" aria-label="Scopus" class="inline-flex items-center">
+            <img src="site-assets/scopus.png" alt="Scopus" class="w-12 h-12 rounded-full overflow-hidden"/>
+
+      </a>
+    </div>
+  </div>
 </div>
 </section>
+
 <section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="education">
-<h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Academic Background</h3>
-<div class="grid grid-cols-[auto_1fr] gap-x-4">
-<div class="flex flex-col items-center gap-1 pt-2">
-<span class="material-symbols-outlined text-primary text-2xl">school</span>
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-</div>
-<div class="flex flex-1 flex-col pb-8">
-<p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">PhD in Geography and the Environment</p>
-<p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">The University of Texas at Austin • Fall 2024 – Spring 2028</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">CGPA: 4.0 out of 4.0</p>
-</div>
-<div class="flex flex-col items-center gap-1">
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-<span class="material-symbols-outlined text-primary text-2xl">school</span>
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-</div>
-<div class="flex flex-1 flex-col pb-8">
-<p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">MSc in Geography and the Environment</p>
-<p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">The University of Texas at Austin • Fall 2022 – Spring 2024</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">CGPA: 4.0 out of 4.0</p>
-</div>
-<div class="flex flex-col items-center gap-1 pb-2">
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-<span class="material-symbols-outlined text-primary text-2xl">school</span>
-</div>
-<div class="flex flex-1 flex-col">
-<p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">Bachelor of Urban & Regional Planning</p>
-<p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">Rajshahi University of Engineering & Technology • Spring 2013 – Fall 2017</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">CGPA: 3.42 out of 4.0</p>
-</div>
-</div>
-<div class="mt-6">
-<h4 class="font-semibold text-primary mb-2">Relevant Coursework</h4>
-<p class="text-gray-600 dark:text-gray-300">Advanced Geographic Information System, Introduction to GeoAI, Seminar in GeoAI, LiDAR Analysis, Geospatial Application in Environmental Science, Regression Analysis, Longitudinal Analysis, Discrete Multivariate Models</p>
-</div>
+  <h3 class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Education</h3>
+  <div class="space-y-6">
+    <div class="flex items-start gap-4">
+      <!-- Placeholder logo -->
+      <div class="flex-shrink-0">
+        <img src="site-assets/uta.png" alt="The University of Texas at Austin Logo" width="64" height="64" class="rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700"/>
+      </div>
+      <div>
+        <p class="text-lg font-semibold">The University of Texas at Austin</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300">PhD in Geography and the Environment — CGPA: 4.00 / 4</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Austin, Texas • Fall 2024 – Spring 2028</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4">
+      <!-- Placeholder logo -->
+      <div class="flex-shrink-0">
+         <img src="site-assets/uta.png" alt="The University of Texas at Austin Logo" width="64" height="64" class="rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700"/>
+    
+      </div>
+      <div>
+        <p class="text-lg font-semibold">The University of Texas at Austin</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300">MSc in Geography and the Environment — CGPA: 4.00 / 4</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Austin, Texas • Fall 2022 – Spring 2024</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4">
+      <!-- Placeholder logo -->
+      <div class="flex-shrink-0">
+        <img src="site-assets/rajashi.jpeg" alt="Rajshahi University of Engineering & Technology Logo" width="64" height="64" class="rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700"/>
+      </div>
+      <div>
+        <p class="text-lg font-semibold">Rajshahi University of Engineering &amp; Technology</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Bachelor of Urban &amp; Regional Planning — CGPA: 3.42 / 4</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Rajshahi, Bangladesh • Spring 2013 – Fall 2017</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="news">
+  <h3 class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">News</h3>
+  <div class="space-y-3">
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>10/18/2025</strong> — I was awarded the Scholars Lab Fellowship ($3,000).</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>08/01/2025</strong> — I was awarded the Harry E. and Bernice M. Moore Fellowship ($20,000).</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>05/12/2025</strong> — I received the Robert E. Veselka Memorial Fellowship - 2025 ($1,500).</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>05/10/2025</strong> — Completed 1 year of my PhD; CGPA: 4.00 (Fall 2024 & Spring 2025).</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>11/22/2024</strong> — Presented a poster at Geography 2050 — <a href="https://www.geography2050.org/2024-speaker-library/mr-abdullah-al-kafy" target="_blank" rel="noopener" class="text-primary hover:underline">Event entry</a>.</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>11/18/2024</strong> — Presented a poster at UT GIS Day – 2024.</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>11/18/2024</strong> — Awarded First Prize for the poster presentation at UT GIS Day – 2024.</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>10/06/2024</strong> — Presented a Graduate Student Research Paper at SWAAG – 2024.</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>10/08/2024</strong> — Received Third Prize at the Graduate Student Research Paper Competition at SWAAG - 2024.</p>
+    </div>
+  </div>
 </section>
 
 <section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="fellowships">
@@ -335,48 +384,48 @@
 <section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="research-experience">
 <h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Research Experience</h3>
 <div class="space-y-4">
-<div>
-<h4 class="font-semibold text-primary">Provost's Graduate Excellence Fellow</h4>
-<p class="text-gray-500 dark:text-gray-400">The University of Texas at Austin | August 2022 – August 2023</p>
-<p class="text-gray-600 dark:text-gray-300 mt-1">Engaging in research, teaching, and academic activities related to Environmental Sustainability. Participating in conferences, workshops, and other professional development opportunities.</p>
-</div>
-<div>
-<h4 class="font-semibold text-primary">Publication Associate (Consultant)</h4>
-<p class="text-gray-500 dark:text-gray-400">University of Liberal Arts Bangladesh | October 2020 - August 2022</p>
-<p class="text-gray-600 dark:text-gray-300 mt-1">Project: Building Resilient Universities: Promotion of Democratic Citizenship And Media Literacy. Refining and publishing environmental sustainability, resilience management, COVID-19, social science, and business management-related reports/white papers in peer-reviewed journals by strengthening methodology, result, discussion, and language structure corrections.</p>
-</div>
-<div>
-<h4 class="font-semibold text-primary">GIS Specialist</h4>
-<p class="text-gray-500 dark:text-gray-400">B & F Company Ltd. | May 2018 - September 2018</p>
-<p class="text-gray-600 dark:text-gray-300 mt-1">Land use map preparation using RapidEye and Landsat images. Data acquisition from satellite and ground-based platforms. Preparation of layout plan and 3D visualization. Land suitability analysis. Project completion report preparation.</p>
-</div>
-<div>
-<h4 class="font-semibold text-primary">Research Consultant</h4>
-<p class="text-gray-500 dark:text-gray-400">Center for Environmental and Geographic Information Services | November 2017 - April 2018</p>
-<p class="text-gray-600 dark:text-gray-300 mt-1">Land use map preparation using Rapid Eye, Sentinel, and Landsat images. Remote sensing database creation and error checking. DEM creation, Digitizing, topology, and error correction.</p>
-</div>
-<div>
-<h4 class="font-semibold text-primary">GIS Consultant</h4>
-<p class="text-gray-500 dark:text-gray-400">Eusuf and Associates | April 2017 - October 2017</p>
-<p class="text-gray-600 dark:text-gray-300 mt-1">Project: Urban Primary Health Care Services Delivery Project (UPHCSDP). Mapping the Slum catchment area using GPS, GIS, and Remote sensing data. Ground Truthing using GIS & GPS. Topographical survey. Project report preparation.</p>
-</div>
-<div>
-<h4 class="font-semibold text-primary">Research Assistant</h4>
-<p class="text-gray-500 dark:text-gray-400">Bangladesh Institute of Planners | March 2017 - September 2017</p>
-<p class="text-gray-600 dark:text-gray-300 mt-1">Project: Developing Active Transportation Indicators for Rajshahi, Bangladesh. Travel behavior questionnaire survey. Data entry and analysis. Travel behavior variables mapping. Documentation of survey outputs as a report.</p>
-</div>
-<div>
-<h4 class="font-semibold text-primary">Research Consultant</h4>
-<p class="text-gray-500 dark:text-gray-400">Caritas Bangladesh | April 2016 - October 2016</p>
-<p class="text-gray-600 dark:text-gray-300 mt-1">Project: Integrated Community Development Project (ICDP). Mapping the Slum catchment area using GPS, GIS, and Remote sensing data. Ground Truthing using GIS & GPS. Topographical survey.</p>
-</div>
+  <!-- Reformatted academic appointments: concise, consistent lines -->
+  <div>
+    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Provost's Graduate Excellence Fellow — Department of Geography &amp; the Environment, The University of Texas at Austin • Aug 2022 – Aug 2023 (Austin, TX)</p>
+    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Supported research and teaching in environmental sustainability, mentored students, and participated in professional development.</p>
+  </div>
+
+  <div>
+    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Publication Associate (Consultant) — University of Liberal Arts Bangladesh • Oct 2020 – Aug 2022 (Dhaka, Bangladesh)</p>
+    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Edited and prepared reports and manuscripts on sustainability, resilience, and social science topics for publication.</p>
+  </div>
+
+  <div>
+    <p class="text-sm font-semibold text-text-light dark:text-text-dark">GIS Specialist — B &amp; F Company Ltd. • May 2018 – Sep 2018 (Rajshahi, Bangladesh)</p>
+    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Conducted land-use mapping, satellite data processing, and produced 2D/3D visualizations and suitability analyses.</p>
+  </div>
+
+  <div>
+    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Research Consultant — Center for Environmental &amp; Geographic Information Services (CEGIS) • Nov 2017 – Apr 2018 (Dhaka, Bangladesh)</p>
+    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Developed remote-sensing databases, DEMs, and performed digitization and quality assurance tasks.</p>
+  </div>
+
+  <div>
+    <p class="text-sm font-semibold text-text-light dark:text-text-dark">GIS Consultant — Eusuf and Associates • Apr 2017 – Oct 2017 (Rajshahi, Bangladesh)</p>
+    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Mapped slum catchments, performed ground-truthing and topographic surveys for urban health service projects.</p>
+  </div>
+
+  <div>
+    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Research Assistant — Bangladesh Institute of Planners • Mar 2017 – Sep 2017 (Rajshahi, Bangladesh)</p>
+    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Conducted surveys, data entry, spatial analysis, and documentation for active transportation indicators.</p>
+  </div>
+
+  <div>
+    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Research Consultant — Caritas Bangladesh • Apr 2016 – Oct 2016 (Rajshahi, Bangladesh)</p>
+    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Participated in community development mapping and spatial data collection for the ICDP project.</p>
+  </div>
+
 </div>
 </section>
 <section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="experience">
 <h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Professional Experience</h3>
 <div class="grid grid-cols-[auto_1fr] gap-x-4">
 <div class="flex flex-col items-center gap-1 pt-2">
-<span class="material-symbols-outlined text-primary text-2xl">work</span>
 <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
 </div>
 <div class="flex flex-1 flex-col pb-8">
@@ -386,7 +435,6 @@
 </div>
 <div class="flex flex-col items-center gap-1">
 <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-<span class="material-symbols-outlined text-primary text-2xl">science</span>
 <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
 </div>
 <div class="flex flex-1 flex-col pb-8">
@@ -396,7 +444,6 @@
 </div>
 <div class="flex flex-col items-center gap-1">
 <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-<span class="material-symbols-outlined text-primary text-2xl">business_center</span>
 <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
 </div>
 <div class="flex flex-1 flex-col pb-8">
@@ -406,7 +453,6 @@
 </div>
 <div class="flex flex-col items-center gap-1">
 <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-<span class="material-symbols-outlined text-primary text-2xl">map</span>
 <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
 </div>
 <div class="flex flex-1 flex-col pb-8">
@@ -422,7 +468,6 @@
 </div>
 <div id="moreExperience" class="hidden mt-6 grid grid-cols-[auto_1fr] gap-x-4">
   <div class="flex flex-col items-center gap-1 pt-2">
-    <span class="material-symbols-outlined text-primary text-2xl">map</span>
     <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
   </div>
   <div class="flex flex-1 flex-col pb-8">
@@ -432,7 +477,6 @@
   </div>
   <div class="flex flex-col items-center gap-1">
     <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-    <span class="material-symbols-outlined text-primary text-2xl">hub</span>
     <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
   </div>
   <div class="flex flex-1 flex-col pb-8">
@@ -442,7 +486,6 @@
   </div>
   <div class="flex flex-col items-center gap-1">
     <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-    <span class="material-symbols-outlined text-primary text-2xl">health_and_safety</span>
     <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
   </div>
   <div class="flex flex-1 flex-col pb-8">
@@ -452,7 +495,6 @@
   </div>
   <div class="flex flex-col items-center gap-1 pb-2">
     <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-    <span class="material-symbols-outlined text-primary text-2xl">volunteer_activism</span>
   </div>
   <div class="flex flex-1 flex-col">
     <p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">Research Consultant</p>
@@ -463,6 +505,118 @@
 
 <script>
   // Experience button functionality will be handled in the main script at the bottom of the page
+</script>
+<!-- Auto-add publication links from about.txt -->
+<script>
+  (function(){
+    // category-aware mapping: type -> (index -> URL)
+    const pubLinks = {
+      journal: {
+        1: 'https://doi.org/10.1016/j.scs.2024.105893',
+        2: 'https://doi.org/10.1016/j.jenvman.2024.122427',
+        3: 'https://doi.org/10.3390/w17142108',
+        4: 'https://doi.org/10.1007/s11869-025-01780-x',
+        5: 'https://doi.org/10.1016/j.rama.2025.06.017',
+        6: 'https://doi.org/10.1016/j.pce.2025.103892',
+        7: 'https://doi.org/10.1007/s12665-025-12427-6',
+        8: 'https://doi.org/10.1007/s00704-025-05750-2',
+        9: 'https://doi.org/10.1016/j.kjs.2025.100453',
+        10: 'https://doi.org/10.1007/s12517-025-12266-6',
+        11: 'https://doi.org/10.1007/s00704-024-05314-w',
+        12: 'https://doi.org/10.1007/s00704-024-05264-3',
+        13: 'https://doi.org/10.1007/s13201-025-02584-1',
+        14: 'https://doi.org/10.1007/s11869-025-01718-3',
+        15: 'https://doi.org/10.1007/s00704-024-05199-9',
+        16: 'https://doi.org/10.1016/j.envpol.2024.124877',
+        17: 'https://doi.org/10.1016/j.pce.2024.103750',
+        18: 'https://doi.org/10.1016/j.jenvman.2024.120705',
+        19: 'https://doi.org/10.1007/s41748-024-00412-1',
+        20: 'https://doi.org/10.1007/s41748-024-00468-z',
+        21: 'https://doi.org/10.1016/j.ecolind.2023.110374',
+        22: 'https://doi.org/10.1016/j.scitotenv.2023.161394',
+        23: 'https://doi.org/10.1016/j.resconrec.2023.107196',
+        24: 'https://doi.org/10.1016/j.envpol.2024.123463',
+        25: 'https://doi.org/10.1016/j.apr.2023.101737',
+        26: 'https://doi.org/10.1016/j.ecolind.2023.111299',
+        27: 'https://doi.org/10.1016/j.buildenv.2022.109066',
+        28: 'https://doi.org/10.1016/j.scs.2022.104107',
+        29: 'https://doi.org/10.1016/j.enbuild.2022.112452',
+        30: 'https://doi.org/10.1016/j.uclim.2022.101347',
+        31: 'https://doi.org/10.1016/j.buildenv.2022.109335',
+        32: 'https://doi.org/10.3390/land11081303',
+        33: 'https://doi.org/10.1007/s12145-022-00875-8',
+        34: 'https://doi.org/10.1007/s41748-022-00318-w',
+        35: 'https://doi.org/10.3390/land11010014',
+        36: 'https://doi.org/10.1007/s41324-022-00441-w',
+        37: 'https://doi.org/10.1016/j.indic.2022.100213',
+        38: 'https://doi.org/10.1007/s10661-022-10695-4',
+        39: 'https://doi.org/10.1007/s41748-022-00332-y',
+        40: 'https://doi.org/10.1016/j.scs.2020.102542',
+        41: 'https://doi.org/10.1016/j.heliyon.2021.e07623',
+        42: 'https://doi.org/10.1016/j.envc.2021.100187',
+        43: 'https://doi.org/10.1016/j.envc.2021.100190',
+        44: 'https://doi.org/10.1007/s12518-021-00390-3',
+        45: 'https://doi.org/10.1016/j.envc.2021.100192',
+        46: 'https://doi.org/10.1016/j.envc.2021.100147',
+        47: 'https://doi.org/10.1016/j.envc.2021.100107',
+        48: 'https://doi.org/10.1016/j.envc.2021.100139',
+        49: 'https://doi.org/10.1016/j.envc.2021.100148',
+        50: 'https://doi.org/10.1016/j.rsase.2020.100314',
+        51: 'https://doi.org/10.1016/j.rsase.2020.100463',
+        52: 'https://doi.org/10.1016/j.jum.2018.12.001'
+      },
+      book: {
+        1: 'http://dx.doi.org/10.1201/9781003049210-6',
+        2: 'http://dx.doi.org/10.1201/9781003049210-16'
+      },
+      report: {
+        1: 'https://southasia.iclei.org/publication/climate-resilient-city-action-plan-rajshahi-bangladesh/',
+        2: 'https://southasia.iclei.org/publication/greenhouse-gas-emission-inventory-report-2017-18-rajshahi/',
+        3: 'https://southasia.iclei.org/publication/guidelines-for-development-of-open-green-spaces-in-rajshahi/',
+        4: 'https://southasia.iclei.org/publication/reducing-heat-impacts-in-rajshahi-city-bangladesh/',
+        5: 'https://southasia.iclei.org/publication/city-resilience-strategy_rajshahi/'
+      },
+      news: {
+        1: 'https://southasia.iclei.org/news/urban-leds-ii-rajshahi-approves-climate-action-plan/',
+        2: 'https://cdkn.org/story/feature-urban-development-must-be-planned-and-climate-resilient-experience-from-rajshahi-city-bangladesh',
+        3: 'https://southasia.iclei.org/news/urban-leds-ii-in-rajshahi-narayanganj-leading-the-way-for-climate-resilient-development-in-bangladesh/',
+        4: 'https://urban-leds.org/rajshahi-advances-its-urban-greening-actions-and-completes-plantation-for-a-pilot-project-on-biodiversity-2/',
+        5: 'https://urban-leds.org/rajshahi-and-narayanganj-complete-assessments-of-climate-risks-vulnerabilities/'
+      },
+      conference: {
+        1: 'https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf',
+        2: 'https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf',
+        3: 'https://jidpus.buet.ac.bd/ICDRM2019/proceedings',
+        4: 'http://103.99.128.19:8080/jspui/handle/123456789/57',
+        5: 'http://103.99.128.19:8080/jspui/handle/123456789/57',
+        6: 'https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf',
+        7: 'https://jidpus.buet.ac.bd/ICDRM2019/proceedings'
+      }
+    };
+
+    // Attach links to publication summaries across categories
+    document.querySelectorAll('.pub-item').forEach(item => {
+      try{
+        const type = item.getAttribute('data-type') || 'journal';
+        const summary = item.querySelector('summary');
+        if(!summary) return;
+        const p = summary.querySelector('p');
+        if(!p) return;
+        const m = p.textContent.trim().match(/^\s*(\d+)\./);
+        if(!m) return;
+        const idx = Number(m[1]);
+        const url = (pubLinks[type] && pubLinks[type][idx]) || null;
+        if(!url) return;
+        const text = p.textContent.trim();
+        const match = text.match(/^(\s*\d+\.)\s*(.+)$/);
+        if(match){
+          const num = match[1];
+          const title = match[2];
+          p.innerHTML = `${num} <a href="${url}" target="_blank" rel="noopener" class="text-primary hover:underline">${title}</a>`;
+        }
+      }catch(e){/* noop */}
+    });
+  })();
 </script>
 </section>
 
@@ -676,7 +830,11 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">1. Kafy, AA., Crews, KA., Thompson, AA. (2025). Exploring the cooling potential of green roofs...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Crews, KA., Thompson, AA.. (2025). Exploring the cooling potential of green roofs for mitigating diurnal heat island intensity by utilizing Lidar and Artificial Neural Network. Sustainable Cities and Society, 116, 105893.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Crews, KA., Thompson, AA.. (2025). Exploring the cooling potential of green roofs for mitigating diurnal heat island intensity by utilizing Lidar and Artificial Neural Network. Sustainable Cities and Society, 116, 105893 <a href="https://doi.org/10.1016/j.scs.2024.105893" target="_blank" rel="noopener" class="text-blue-600 hover:underline">
+    https://doi.org/10.1016/j.scs.2024.105893
+  </a>.
+</p>
+ 
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -684,7 +842,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">2. Kafy, AA., Dey, NN., Saha, M., et al. (2024). Leveraging machine learning algorithms...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Dey, NN., Saha, M., et al. (2024). Leveraging machine learning algorithms in dynamic modeling of urban expansion, surface heat islands, and carbon storage for sustainable environmental management in coastal ecosystems. Journal of Environmental Management, 370, 122427.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Dey, NN., Saha, M., et al. (2024). Leveraging machine learning algorithms in dynamic modeling of urban expansion, surface heat islands, and carbon storage for sustainable environmental management in coastal ecosystems. Journal of Environmental Management, 370, 122427. <a href="https://doi.org/10.1016/j.jenvman.2024.122427" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.jenvman.2024.122427</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -692,7 +850,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">3. AlRifai, MH., Kafy, AA., & Altuwaijri, HA. (2025). Quantitative Assessment of Flood Risk...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">AlRifai, MH., Kafy, AA., & Altuwaijri, HA. (2025). Quantitative Assessment of Flood Risk Through Multi Parameter Morphometric Analysis and GeoAI: A GIS-Based Study of Wadi Ranuna Basin in Saudi Arabia. Water, 17(14), 2108.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">AlRifai, MH., Kafy, AA., & Altuwaijri, HA. (2025). Quantitative Assessment of Flood Risk Through Multi Parameter Morphometric Analysis and GeoAI: A GIS-Based Study of Wadi Ranuna Basin in Saudi Arabia. Water, 17(14), 2108. <a href="https://doi.org/10.3390/w17142108" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.3390/w17142108</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -700,7 +858,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">4. Altuwaijri, HA., Kafy, AA. (2025). Decoding atmospheric thermal exposure patterns...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., (2025). Decoding atmospheric thermal exposure patterns with implications for environmental health and urban air quality over forty years in arid regions. Air Quality, Atmosphere & Health 18, 2405–2430.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., (2025). Decoding atmospheric thermal exposure patterns with implications for environmental health and urban air quality over forty years in arid regions. Air Quality, Atmosphere & Health 18, 2405–2430. <a href="https://doi.org/10.1007/s11869-025-01780-x" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s11869-025-01780-x</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -708,7 +866,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">5. Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Predicting Spatiotemporal Dynamics...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Predicting Spatiotemporal Dynamics of Land Use Influenced Thermal Patterns Using Remote Sensing-based Machine Learning Algorithms. Rangeland Ecology & Management, 103, 8-27.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Predicting Spatiotemporal Dynamics of Land Use Influenced Thermal Patterns Using Remote Sensing-based Machine Learning Algorithms. Rangeland Ecology & Management, 103, 8-27. <a href="https://doi.org/10.1016/j.rama.2025.06.017" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.rama.2025.06.017</a></p>
   </details>
   
   <!-- Additional Journal Articles (6-50) -->
@@ -717,7 +875,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">6. Kafy, AA., Rahman, MS., Faisal, AA., et al. (2024). Modeling future land use changes...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, MS., Faisal, AA., et al. (2024). Modeling future land use changes and their impacts on land surface temperature in rapidly growing cities using an integrated approach of SLEUTH-CA and machine learning algorithms. Ecological Indicators, 147, 110146.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, MS., Faisal, AA., et al. (2024). Modeling future land use changes and their impacts on land surface temperature in rapidly growing cities using an integrated approach of SLEUTH-CA and machine learning algorithms. Ecological Indicators, 147, 110146. <a href="https://doi.org/10.1016/j.pce.2025.103892" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.pce.2025.103892</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -725,7 +883,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">7. Kafy, AA., Faisal, AA., Khan, MHH., et al. (2023). Exploring the cooling effects...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Faisal, AA., Khan, MHH., et al. (2023). Exploring the cooling effects of urban blue-green spaces on land surface temperature using geospatial techniques and artificial neural network. Urban Climate, 47, 101383.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Faisal, AA., Khan, MHH., et al. (2023). Exploring the cooling effects of urban blue-green spaces on land surface temperature using geospatial techniques and artificial neural network. Urban Climate, 47, 101383. <a href="https://doi.org/10.1007/s12665-025-12427-6" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s12665-025-12427-6</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -733,7 +891,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">8. Kafy, AA., Hasan, MM., Sikdar, MS., et al. (2022). Modeling the relationship...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Hasan, MM., Sikdar, MS., et al. (2022). Modeling the relationship between land surface temperature and land use categories using remote sensing and artificial neural network. Land, 11(3), 406.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Hasan, MM., Sikdar, MS., et al. (2022). Modeling the relationship between land surface temperature and land use categories using remote sensing and artificial neural network. Land, 11(3), 406. <a href="https://doi.org/10.1007/s00704-025-05750-2" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s00704-025-05750-2</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -741,7 +899,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">9. Kafy, AA., Rahman, MS., Hasan, MM., et al. (2022). Modeling future land use...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, MS., Hasan, MM., et al. (2022). Modeling future land use land cover changes and their impacts on land surface temperatures in the Rajshahi district of Bangladesh. Remote Sensing Applications: Society and Environment, 25, 100675.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, MS., Hasan, MM., et al. (2022). Modeling future land use land cover changes and their impacts on land surface temperatures in the Rajshahi district of Bangladesh. Remote Sensing Applications: Society and Environment, 25, 100675. <a href="https://doi.org/10.1016/j.kjs.2025.100453" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.kjs.2025.100453</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -749,7 +907,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">10. Kafy, AA., Al-Faisal, A., Sikdar, MS., et al. (2021). Impact of LULC changes...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Al-Faisal, A., Sikdar, MS., et al. (2021). Impact of LULC changes on LST in Rajshahi city of Bangladesh: a remote sensing approach. Journal of Geographical Studies, 5(1), 24-42.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Al-Faisal, A., Sikdar, MS., et al. (2021). Impact of LULC changes on LST in Rajshahi city of Bangladesh: a remote sensing approach. Journal of Geographical Studies, 5(1), 24-42. <a href="https://doi.org/10.1007/s12517-025-12266-6" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s12517-025-12266-6</a></p>
   </details>
   
   <div class="text-center mt-4">
@@ -765,7 +923,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">11. Altuwaijri, HA., Kafy, AA., Rahaman, ZA. (2025). Multi-temporal remote sensing...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., (2025). Multi-temporal remote sensing and geospatial analysis for urban ecosystem service dynamics: A three-decade assessment of land surface transformation in Jeddah, Saudi Arabia. Physics and Chemistry of the Earth, Parts A/B/C, 139, 103892.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., (2025). Multi-temporal remote sensing and geospatial analysis for urban ecosystem service dynamics: A three-decade assessment of land surface transformation in Jeddah, Saudi Arabia. Physics and Chemistry of the Earth, Parts A/B/C, 139, 103892. <a href="https://doi.org/10.1007/s00704-024-05314-w" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s00704-024-05314-w</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -773,7 +931,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">12. Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Biophysical parameters...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Biophysical parameters and land surface temperature dynamics in arid urban environments: A comprehensive machine learning approach. Environmental Earth Sciences, 84(15), 434.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Biophysical parameters and land surface temperature dynamics in arid urban environments: A comprehensive machine learning approach. Environmental Earth Sciences, 84(15), 434. <a href="https://doi.org/10.1007/s00704-024-05264-3" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s00704-024-05264-3</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -781,7 +939,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">13. Miah, M.T., Fariha, J.N., Kafy, A.A et al. (2025). Geostatistical assessment...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Miah, M.T., Fariha, J.N., Kafy, A.A et al. (2025). Geostatistical assessment of Spatial climate dynamics using mono window machine learning algorithm for decoding land cover and demographic shifts influence on thermal environment. Theor Appl Climatol 156, 544 (2025).</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Miah, M.T., Fariha, J.N., Kafy, A.A et al. (2025). Geostatistical assessment of Spatial climate dynamics using mono window machine learning algorithm for decoding land cover and demographic shifts influence on thermal environment. Theor Appl Climatol 156, 544 (2025). <a href="https://doi.org/10.1007/s13201-025-02584-1" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s13201-025-02584-1</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -789,7 +947,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">14. Salim, M. Z., Rahman, M. H., Kafy, AA, et al. (2025). Automated geospatial workflow...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Salim, M. Z., Rahman, M. H., Kafy, AA, et al. (2025). Automated geospatial workflow for spatiotemporal assessment of urban expansion influence on deforestation in Northeast Florida. Kuwait Journal of Science, 100453.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Salim, M. Z., Rahman, M. H., Kafy, AA, et al. (2025). Automated geospatial workflow for spatiotemporal assessment of urban expansion influence on deforestation in Northeast Florida. Kuwait Journal of Science, 100453. <a href="https://doi.org/10.1007/s11869-025-01718-3" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s11869-025-01718-3</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -797,7 +955,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">15. AlDousari, A.E., Kafy, AA & Rahaman, Z.A. (2025). Unveiling the dynamic interplay...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">AlDousari, A.E., Kafy, AA & Rahaman, Z.A. (2025) Unveiling the dynamic interplay of biophysical, morphological, and temperature extremes in arid regions of Kuwait: Decoding sustainable urban resilience by utilizing remote sensing techniques. Arab J Geosci 18, 131.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">AlDousari, A.E., Kafy, AA & Rahaman, Z.A. (2025) Unveiling the dynamic interplay of biophysical, morphological, and temperature extremes in arid regions of Kuwait: Decoding sustainable urban resilience by utilizing remote sensing techniques. Arab J Geosci 18, 131. <a href="https://doi.org/10.1007/s00704-024-05199-9" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s00704-024-05199-9</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -805,7 +963,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">16. Aldosary, A.S., Al-Ramadan, B., Kafy, AA et al. (2025). Illuminating the invisible...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Aldosary, A.S., Al-Ramadan, B., Kafy, AA et al. (2025). Illuminating the invisible: unveiling multiscale environmental impacts of ultraviolet irradiance utilizing advanced statistical analysis in arid climate. Theor Appl Climatol 156, 76.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Aldosary, A.S., Al-Ramadan, B., Kafy, AA et al. (2025). Illuminating the invisible: unveiling multiscale environmental impacts of ultraviolet irradiance utilizing advanced statistical analysis in arid climate. Theor Appl Climatol 156, 76. <a href="https://doi.org/10.1016/j.envpol.2024.124877" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envpol.2024.124877</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -813,7 +971,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">17. Sonet, M.S., Hasan, M.Y., Kafy, AA et al. (2025). Spatiotemporal analysis...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Sonet, M.S., Hasan, M.Y., Kafy, AA et al. (2025) Spatiotemporal analysis of urban expansion, land use dynamics, and thermal characteristics in a rapidly growing megacity using remote sensing and machine learning techniques. Theor Appl Climatol 156, 79.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Sonet, M.S., Hasan, M.Y., Kafy, AA et al. (2025) Spatiotemporal analysis of urban expansion, land use dynamics, and thermal characteristics in a rapidly growing megacity using remote sensing and machine learning techniques. Theor Appl Climatol 156, 79. <a href="https://doi.org/10.1016/j.pce.2024.103750" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.pce.2024.103750</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -821,7 +979,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">18. Shuvo, R.M., Chowdhury, R.R., Chakroborty, S. Kafy, AA et al. (2025). Groundwater sustainability...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Shuvo, R.M., Chowdhury, R.R., Chakroborty, S. Kafy, AA et al. (2025) Groundwater sustainability assessment and desertification susceptibility mapping in semi-arid Bangladesh using integrated remote sensing and logistic regression modeling. Appl Water Sci 15, 224.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Shuvo, R.M., Chowdhury, R.R., Chakroborty, S. Kafy, AA et al. (2025) Groundwater sustainability assessment and desertification susceptibility mapping in semi-arid Bangladesh using integrated remote sensing and logistic regression modeling. Appl Water Sci 15, 224. <a href="https://doi.org/10.1016/j.jenvman.2024.120705" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.jenvman.2024.120705</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -829,7 +987,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">19. Al-Ramadan, B., Aldosary, A.S., Kafy, A. et al. (2025). Unraveling solar irradiance dynamics...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Al-Ramadan, B., Aldosary, A.S., Kafy, A. et al. (2025). Unraveling solar irradiance dynamics in arid atmospheres: A multi-decadal wavelet coherence and probability density functions analysis with implications for air quality, climate, and renewable energy. Air Qual Atmos Health 18, 1463–1487.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Al-Ramadan, B., Aldosary, A.S., Kafy, A. et al. (2025). Unraveling solar irradiance dynamics in arid atmospheres: A multi-decadal wavelet coherence and probability density functions analysis with implications for air quality, climate, and renewable energy. Air Qual Atmos Health 18, 1463–1487. <a href="https://doi.org/10.1007/s41748-024-00412-1" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s41748-024-00412-1</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -837,7 +995,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">20. Kafy, AA., Altuwaijri, HA. (2024). Eco-climatological modeling approach...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Altuwaijri, HA. (2024). Eco-climatological modeling approach for exploring spatiotemporal dynamics of ecosystem service values in response to land use and land cover changes in Riyadh, Saudi Arabia. Theoretical and Applied Climatology.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Altuwaijri, HA. (2024). Eco-climatological modeling approach for exploring spatiotemporal dynamics of ecosystem service values in response to land use and land cover changes in Riyadh, Saudi Arabia. Theoretical and Applied Climatology. <a href="https://doi.org/10.1007/s41748-024-00468-z" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s41748-024-00468-z</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -845,7 +1003,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">21. Saha, M., Kafy, AA., Bakshi, A., et al. (2024). The urban air quality nexus...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Saha, M., Kafy, AA., Bakshi, A., et al. (2024). The urban air quality nexus: Assessing the interplay of land cover change and air pollution in emerging South Asian cities. Environmental Pollution, 361, 124877.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Saha, M., Kafy, AA., Bakshi, A., et al. (2024). The urban air quality nexus: Assessing the interplay of land cover change and air pollution in emerging South Asian cities. Environmental Pollution, 361, 124877. <a href="https://doi.org/10.1016/j.ecolind.2023.110374" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.ecolind.2023.110374</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -853,7 +1011,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">22. Salim, MZ., Kafy, AA., Altuwaijri, HA., et al. (2024). Quantitative assessment...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Salim, MZ., Kafy, AA., Altuwaijri, HA., et al. (2024). Quantitative assessment of Hurricane Ian's damage on urban vegetation dynamics utilizing Landsat 9 in Fort Myers, Florida. Physics and Chemistry of the Earth, Parts A/B/C, 136, 103750.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Salim, MZ., Kafy, AA., Altuwaijri, HA., et al. (2024). Quantitative assessment of Hurricane Ian's damage on urban vegetation dynamics utilizing Landsat 9 in Fort Myers, Florida. Physics and Chemistry of the Earth, Parts A/B/C, 136, 103750. <a href="https://doi.org/10.1016/j.scitotenv.2023.161394" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.scitotenv.2023.161394</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -861,7 +1019,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">23. Almulhim, AI., Kafy, AA., Ferdous, MN., et al. (2024). Harnessing urban analytics...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Almulhim, AI., Kafy, AA., Ferdous, MN., et al. (2024). Harnessing urban analytics and machine learning for sustainable urban development: A multidimensional framework for modeling environmental impacts of urbanization in Saudi Arabia. Journal of Environmental Management, 357, 120705.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Almulhim, AI., Kafy, AA., Ferdous, MN., et al. (2024). Harnessing urban analytics and machine learning for sustainable urban development: A multidimensional framework for modeling environmental impacts of urbanization in Saudi Arabia. Journal of Environmental Management, 357, 120705. <a href="https://doi.org/10.1016/j.resconrec.2023.107196" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.resconrec.2023.107196</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -869,7 +1027,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">24. AlDousari, AE., Fattah, M., Kafy, AA. (2024). Assessing Solar Irradiance Trends...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">AlDousari, AE., Fattah, M., Kafy, AA. (2024). Assessing Solar Irradiance Trends and Temperature Extremes by Applying Machine Learning Based Statistical Modelling for Renewable Energy Optimization. Earth Syst Environ.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">AlDousari, AE., Fattah, M., Kafy, AA. (2024). Assessing Solar Irradiance Trends and Temperature Extremes by Applying Machine Learning Based Statistical Modelling for Renewable Energy Optimization. Earth Syst Environ. <a href="https://doi.org/10.1016/j.envpol.2024.123463" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envpol.2024.123463</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -877,7 +1035,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">25. Rahaman, ZA., Kafy, AA., Fattah, MA. et al. (2024). Enhancing Urban Ecological Risk Assessment...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahaman, ZA., Kafy, AA., Fattah, MA. et al. (2024). Enhancing Urban Ecological Risk Assessment by Integrating Spatial Modeling and Machine Learning for Resilient Environmental Management in UNESCO World Heritage Cities. Earth Syst Environ.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahaman, ZA., Kafy, AA., Fattah, MA. et al. (2024). Enhancing Urban Ecological Risk Assessment by Integrating Spatial Modeling and Machine Learning for Resilient Environmental Management in UNESCO World Heritage Cities. Earth Syst Environ. <a href="https://doi.org/10.1016/j.apr.2023.101737" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.apr.2023.101737</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -885,7 +1043,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">26. Kafy, AA., Saha, M., Fattah, MA., et al. (2023). Integrating forest cover change...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Saha, M., Fattah, MA., et al. (2023). Integrating forest cover change and carbon storage dynamics: Leveraging Google Earth Engine and InVEST model to inform conservation in hilly regions. Ecological Indicators, 152, 110374.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Saha, M., Fattah, MA., et al. (2023). Integrating forest cover change and carbon storage dynamics: Leveraging Google Earth Engine and InVEST model to inform conservation in hilly regions. Ecological Indicators, 152, 110374. <a href="https://doi.org/10.1016/j.ecolind.2023.111299" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.ecolind.2023.111299</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -893,7 +1051,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">27. Kafy, AA., Bakshi, A., Saha, M., et al. (2023). Assessment and prediction...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Bakshi, A., Saha, M., et al. (2023). Assessment and prediction of index based agricultural drought vulnerability using machine learning algorithms. The Science of the Total Environment, 867, 161394–161394.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Bakshi, A., Saha, M., et al. (2023). Assessment and prediction of index based agricultural drought vulnerability using machine learning algorithms. The Science of the Total Environment, 867, 161394–161394. <a href="https://doi.org/10.1016/j.buildenv.2022.109066" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.buildenv.2022.109066</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -901,7 +1059,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">28. Mukarram. MMT., Kafy, AA., Mukarram. MMT., et al. (2023). Perception of coastal citizens...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Mukarram. MMT., Kafy, AA., Mukarram. MMT., et al. (2023). Perception of coastal citizens on the prospect of community-based rainwater harvesting system for sustainable water resource management. Resources, Conservation & Recycling, 198, 107196.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Mukarram. MMT., Kafy, AA., Mukarram. MMT., et al. (2023). Perception of coastal citizens on the prospect of community-based rainwater harvesting system for sustainable water resource management. Resources, Conservation & Recycling, 198, 107196. <a href="https://doi.org/10.1016/j.scs.2022.104107" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.scs.2022.104107</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -909,7 +1067,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">29. Morshed, S.R., Fattah, M.A., Kafy, AA., et al. (2024). Decoding seasonal variability...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Morshed, S.R., Fattah, M.A., Kafy, AA., et al. (2024). Decoding seasonal variability of air pollutants with climate factors: A Geostatistical approach using multimodal regression models for informed climate change mitigation. Environmental Pollution, p.123463.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Morshed, S.R., Fattah, M.A., Kafy, AA., et al. (2024). Decoding seasonal variability of air pollutants with climate factors: A Geostatistical approach using multimodal regression models for informed climate change mitigation. Environmental Pollution, p.123463. <a href="https://doi.org/10.1016/j.enbuild.2022.112452" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.enbuild.2022.112452</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -917,7 +1075,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">30. Fattah, M. A., Morshed, S. R., Kafy, AA., et al. (2023). Wavelet coherence analysis...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Fattah, M. A., Morshed, S. R., Kafy, AA., et al. (2023). Wavelet coherence analysis of PM2. 5 variability in response to meteorological changes in South Asian cities. Atmospheric Pollution Research, 14(5), 101737.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Fattah, M. A., Morshed, S. R., Kafy, AA., et al. (2023). Wavelet coherence analysis of PM2. 5 variability in response to meteorological changes in South Asian cities. Atmospheric Pollution Research, 14(5), 101737. <a href="https://doi.org/10.1016/j.uclim.2022.101347" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.uclim.2022.101347</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -925,7 +1083,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">31. Sharmin S., Kafy, AA., Haque, MJ. et al. (2023). Analyzing land subsidence...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Sharmin S., Kafy, AA., Haque, MJ. et al. (2023). Analyzing land subsidence vulnerability in coastal region using machine learning algorithms. Science of The Total Environment, 870, 162016.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Sharmin S., Kafy, AA., Haque, MJ. et al. (2023). Analyzing land subsidence vulnerability in coastal region using machine learning algorithms. Science of The Total Environment, 870, 162016. <a href="https://doi.org/10.1016/j.buildenv.2022.109335" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.buildenv.2022.109335</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -933,7 +1091,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">32. Kafy, AA., Hasan, M.M., Sarker, A.Z., et al. (2023). Exploring the transformative potential...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Hasan, M.M., Sarker, A.Z., et al. (2023). Exploring the transformative potential of advanced composting systems for household waste management and environmental sustainability. Environmental Science and Pollution Research, 1-24.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Hasan, M.M., Sarker, A.Z., et al. (2023). Exploring the transformative potential of advanced composting systems for household waste management and environmental sustainability. Environmental Science and Pollution Research, 1-24. <a href="https://doi.org/10.3390/land11081303" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.3390/land11081303</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -941,7 +1099,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">33. Kafy, AA., Naim, N.J., Subramanyam, G. et al. (2022). Generating a binary ecological risk surface...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Naim, N.J., Subramanyam, G. et al. (2022). Generating a binary ecological risk surface by integrating landscape metrics, spatial multi-criteria evaluation, and natural breaks classification for balancing environmental protection with development targets. Environmental Science and Pollution Research, 30, 1739-1762.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Naim, N.J., Subramanyam, G. et al. (2022). Generating a binary ecological risk surface by integrating landscape metrics, spatial multi-criteria evaluation, and natural breaks classification for balancing environmental protection with development targets. Environmental Science and Pollution Research, 30, 1739-1762. <a href="https://doi.org/10.1007/s12145-022-00875-8" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s12145-022-00875-8</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -949,7 +1107,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">34. Al-Amin, S., Rahaman, ZA., Rahman, M., Kafy, AA. et al. (2023). Mitigating climate vulnerability...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Al-Amin, S., Rahaman, ZA., Rahman, M., Kafy, AA. et al. (2023). Mitigating climate vulnerability by leveraging nature-based solutions and green infrastructure: An approach towards integrated flood risk assessment in the Padma floodplain of Bangladesh. International Journal of Disaster Risk Reduction, 101282.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Al-Amin, S., Rahaman, ZA., Rahman, M., Kafy, AA. et al. (2023). Mitigating climate vulnerability by leveraging nature-based solutions and green infrastructure: An approach towards integrated flood risk assessment in the Padma floodplain of Bangladesh. International Journal of Disaster Risk Reduction, 101282. <a href="https://doi.org/10.1007/s41748-022-00318-w" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s41748-022-00318-w</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -957,7 +1115,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">35. Rahman, M., Kafy, AA., & Fattah, M.A. (2022). Ecosystem service value modification...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahman, M., Kafy, AA., & Fattah, M.A. (2022). Ecosystem service value modification and regional disparity analysis concerning landscape dynamics using geospatial big data: Implications for inclusive and sustainable development. Journal of Environmental Management, 313, 114997.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahman, M., Kafy, AA., & Fattah, M.A. (2022). Ecosystem service value modification and regional disparity analysis concerning landscape dynamics using geospatial big data: Implications for inclusive and sustainable development. Journal of Environmental Management, 313, 114997. <a href="https://doi.org/10.3390/land11010014" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.3390/land11010014</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -965,7 +1123,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">36. Rahman, MS., Ali, MY., Kafy, AA. et al. (2022). Assessing the environmental burden of disease...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahman, MS., Ali, MY., Kafy, AA. et al. (2022). Assessing the environmental burden of disease and ecological risk using geospatial technology: Towards developing an environment profile of Bangladesh. GeoHealth, e2021GH000570.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahman, MS., Ali, MY., Kafy, AA. et al. (2022). Assessing the environmental burden of disease and ecological risk using geospatial technology: Towards developing an environment profile of Bangladesh. GeoHealth, e2021GH000570. <a href="https://doi.org/10.1007/s41324-022-00441-w" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s41324-022-00441-w</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -973,7 +1131,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">37. Kafy, AA., Rahman, M., Hasan, M. et al. (2022). Modeling future land use land cover changes...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, M., Hasan, M. et al. (2022). Modeling future land use land cover changes and their impacts on land surface temperatures in the Rajshahi district, Bangladesh. Land, 11(2), 195.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, M., Hasan, M. et al. (2022). Modeling future land use land cover changes and their impacts on land surface temperatures in the Rajshahi district, Bangladesh. Land, 11(2), 195. <a href="https://doi.org/10.1016/j.indic.2022.100213" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.indic.2022.100213</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -981,7 +1139,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">38. Rahman, M., Kafy, AA., Fattah, M.A. et al. (2021). Modeling spatio-temporal patterns of urban expansion...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahman, M., Kafy, AA., Fattah, M.A. et al. (2021). Modeling spatio-temporal patterns of urban expansion in Bangladesh using an ecological approach: Perspectives for environmental sustainability. Remote Sensing, 13(22), 4482.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahman, M., Kafy, AA., Fattah, M.A. et al. (2021). Modeling spatio-temporal patterns of urban expansion in Bangladesh using an ecological approach: Perspectives for environmental sustainability. Remote Sensing, 13(22), 4482. <a href="https://doi.org/10.1007/s10661-022-10695-4" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s10661-022-10695-4</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -989,7 +1147,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">39. Hasan, M.M., Alam, A., Kafy, AA. et al. (2022). Geospatial analysis of land use land cover...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Hasan, M.M., Alam, A., Kafy, AA. et al. (2022). Geospatial analysis of land use land cover, thermal environment and their nexus with social and environmental parameters: A case study of Rangpur district in Bangladesh. Heliyon, 8(7).</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Hasan, M.M., Alam, A., Kafy, AA. et al. (2022). Geospatial analysis of land use land cover, thermal environment and their nexus with social and environmental parameters: A case study of Rangpur district in Bangladesh. Heliyon, 8(7). <a href="https://doi.org/10.1007/s41748-022-00332-y" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s41748-022-00332-y</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -997,7 +1155,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">40. Alam, A., Bhat, M.S., Farooq, H., Yunus, A.P., Kafy, AA. et al. (2021). Improved tropical cyclone...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Alam, A., Bhat, M.S., Farooq, H., Yunus, A.P., Kafy, AA. et al. (2021). Improved tropical cyclone intensity predictions by incorporating transboundary heat and momentum interactions from a regional coupled model. Scientific reports, 11(1), 1-18.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Alam, A., Bhat, M.S., Farooq, H., Yunus, A.P., Kafy, AA. et al. (2021). Improved tropical cyclone intensity predictions by incorporating transboundary heat and momentum interactions from a regional coupled model. Scientific reports, 11(1), 1-18. <a href="https://doi.org/10.1016/j.scs.2020.102542" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.scs.2020.102542</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1005,7 +1163,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">41. Kafy, AA., Rahman, M.S., Hasan, M.M. et al. (2021). Modeling future land-use change scenarios...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, M.S., Hasan, M.M. et al. (2021). Modeling future land-use change scenarios in the Savar upazila of Bangladesh using the artificial neural network-cellular automata approach. Journal of Land Use Science, 1-25.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, M.S., Hasan, M.M. et al. (2021). Modeling future land-use change scenarios in the Savar upazila of Bangladesh using the artificial neural network-cellular automata approach. Journal of Land Use Science, 1-25. <a href="https://doi.org/10.1016/j.heliyon.2021.e07623" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.heliyon.2021.e07623</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1013,7 +1171,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">42. Saha, S., Islam, S., Kafy, AA. et al. (2022). Analyzing the Future Urban Heat Island Risk...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Saha, S., Islam, S., Kafy, AA. et al. (2022). Analyzing the Future Urban Heat Island Risk of Rapidly Urbanizing Tropical Cities Under the Ecological Health Risk Lens: A Study on Dhaka, Bangladesh. Risk Analysis.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Saha, S., Islam, S., Kafy, AA. et al. (2022). Analyzing the Future Urban Heat Island Risk of Rapidly Urbanizing Tropical Cities Under the Ecological Health Risk Lens: A Study on Dhaka, Bangladesh. Risk Analysis. <a href="https://doi.org/10.1016/j.envc.2021.100187" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envc.2021.100187</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1021,7 +1179,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">43. Rahaman, KR., Kafy, AA., Rahman, S. et al. (2022). Green and Resilient Urban Future...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahaman, KR., Kafy, AA., Rahman, S. et al. (2022). Green and Resilient Urban Future from The Spatial Planning Perspective. Frontiers in Environmental Science.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rahaman, KR., Kafy, AA., Rahman, S. et al. (2022). Green and Resilient Urban Future from The Spatial Planning Perspective. Frontiers in Environmental Science. <a href="https://doi.org/10.1016/j.envc.2021.100190" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envc.2021.100190</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1029,7 +1187,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">44. Hasan, M.M., Kafy, AA., Lupala, J.M. et al. (2021). Identifying and assessing urban vacant lands...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Hasan, M.M., Kafy, AA., Lupala, J.M. et al. (2021). Identifying and assessing urban vacant lands for sustainable urban management in Khulna city of Bangladesh. Urban Science, 5(3), 58.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Hasan, M.M., Kafy, AA., Lupala, J.M. et al. (2021). Identifying and assessing urban vacant lands for sustainable urban management in Khulna city of Bangladesh. Urban Science, 5(3), 58. <a href="https://doi.org/10.1007/s12518-021-00390-3" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s12518-021-00390-3</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1037,7 +1195,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">45. Hasan, M.M., Kafy, AA., Rahman, M. et al. (2021). A hierarchical approach for modeling urban vacant lands...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Hasan, M.M., Kafy, AA., Rahman, M. et al. (2021). A hierarchical approach for modeling urban vacant lands suitability analysis using geographic information system and analytical hierarchy process. Land, 10(8), 793.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Hasan, M.M., Kafy, AA., Rahman, M. et al. (2021). A hierarchical approach for modeling urban vacant lands suitability analysis using geographic information system and analytical hierarchy process. Land, 10(8), 793. <a href="https://doi.org/10.1016/j.envc.2021.100192" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envc.2021.100192</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1045,7 +1203,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">46. Kafy, AA., Rahman, M.S., Al-Faisal, A. et al. (2021). Application of artificial neural network...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, M.S., Al-Faisal, A. et al. (2021). Application of artificial neural network for livelihood vulnerability assessment due to climate change and adaptation strategies. Journal of Cleaner Production, 316, 128492.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, M.S., Al-Faisal, A. et al. (2021). Application of artificial neural network for livelihood vulnerability assessment due to climate change and adaptation strategies. Journal of Cleaner Production, 316, 128492. <a href="https://doi.org/10.1016/j.envc.2021.100147" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envc.2021.100147</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1053,7 +1211,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">47. Kafy, AA., Al-Faisal, A., Sikdar, M.S. (2021). Impact of LULC changes on LST in Rajshahi City...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Al-Faisal, A., Sikdar, M.S. (2021). Impact of LULC changes on LST in Rajshahi City of Bangladesh: a remote sensing approach. Journal of Geographical Studies, 4(2), 111-128.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Al-Faisal, A., Sikdar, M.S. (2021). Impact of LULC changes on LST in Rajshahi City of Bangladesh: a remote sensing approach. Journal of Geographical Studies, 4(2), 111-128. <a href="https://doi.org/10.1016/j.envc.2021.100107" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envc.2021.100107</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1061,7 +1219,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">48. Ali, M.Y., Kafy, AA., Sikdar, M.S. et al. (2021). Water quality modelling using artificial neural network...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Ali, M.Y., Kafy, AA., Sikdar, M.S. et al. (2021). Water quality modelling using artificial neural network: A case study on Halda River, Chattogram, Bangladesh. Open Geosciences, 13(1), 1013-1030.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Ali, M.Y., Kafy, AA., Sikdar, M.S. et al. (2021). Water quality modelling using artificial neural network: A case study on Halda River, Chattogram, Bangladesh. Open Geosciences, 13(1), 1013-1030. <a href="https://doi.org/10.1016/j.envc.2021.100139" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envc.2021.100139</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1069,7 +1227,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">49. Islam, M.S., Kafy, AA. (2021). Coronavirus (COVID-19) health risk zoning using geospatial techniques...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Islam, M.S., Kafy, AA. (2021). Coronavirus (COVID-19) health risk zoning using geospatial techniques to combat the outbreak. Urban Health, 1-3.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Islam, M.S., Kafy, AA. (2021). Coronavirus (COVID-19) health risk zoning using geospatial techniques to combat the outbreak. Urban Health, 1-3. <a href="https://doi.org/10.1016/j.envc.2021.100148" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.envc.2021.100148</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1077,7 +1235,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">50. Kafy, AA., Rahman, M.S., Hasan, M.M. et al. (2021). Exploring the association of land cover change...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, M.S., Hasan, M.M. et al. (2021). Exploring the association of land cover change and land surface temperature in the mining areas of Sylhet, Bangladesh, using Landsat imagery. Geology, Ecology, and Landscapes, 1-14.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Rahman, M.S., Hasan, M.M. et al. (2021). Exploring the association of land cover change and land surface temperature in the mining areas of Sylhet, Bangladesh, using Landsat imagery. Geology, Ecology, and Landscapes, 1-14. <a href="https://doi.org/10.1016/j.rsase.2020.100314" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.rsase.2020.100314</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1085,7 +1243,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">51. Kafy, AA., Faisal, A., Sikdar, M.S. et al. (2020). Impact of LULC changes on LST in Rajshahi...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Faisal, A., Sikdar, M.S. et al. (2020). Impact of LULC changes on LST in Rajshahi City of Bangladesh: A remote sensing approach. Journal of Geographical Studies, 4(2), 111-128.</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Faisal, A., Sikdar, M.S. et al. (2020). Impact of LULC changes on LST in Rajshahi City of Bangladesh: A remote sensing approach. Journal of Geographical Studies, 4(2), 111-128. <a href="https://doi.org/10.1016/j.rsase.2020.100463" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.rsase.2020.100463</a></p>
     </details>
     
     <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1093,7 +1251,7 @@
         <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">52. Kafy, AA., Hasan, M.M., Faisal, A. et al. (2020). The vulnerability of drinking water facilities...</p>
         <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
       </summary>
-      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Hasan, M.M., Faisal, A. et al. (2020). The vulnerability of drinking water facilities to safe drinking water under flash flood hazard in different cities of Rangpur division of Bangladesh. Malaysian Journal of Civil Engineering, 32(2).</p>
+      <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., Hasan, M.M., Faisal, A. et al. (2020). The vulnerability of drinking water facilities to safe drinking water under flash flood hazard in different cities of Rangpur division of Bangladesh. Malaysian Journal of Civil Engineering, 32(2). <a href="https://doi.org/10.1016/j.jum.2018.12.001" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.jum.2018.12.001</a></p>
     </details>
     
     <div class="text-center mt-4">
@@ -1107,7 +1265,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">1. Kafy AA, Naim NH, Khan MH, et al. (2021). Prediction of urban expansion...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, Naim NH, Khan MH, Islam MA, Al Rakib A, Faisal AA, Sarker MH (2021). Prediction of urban expansion and identifying its impacts on the degradation of agricultural land: a machine learning-based remote-sensing approach in Rajshahi, Bangladesh. Re-envisioning remote sensing applications (Taylor & Francis).</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, Naim NH, Khan MH, Islam MA, Al Rakib A, Faisal AA, Sarker MH (2021). Prediction of urban expansion and identifying its impacts on the degradation of agricultural land: a machine learning-based remote-sensing approach in Rajshahi, Bangladesh. Re-envisioning remote sensing applications (Taylor & Francis). <a href="http://dx.doi.org/10.1201/9781003049210-6" target="_blank" rel="noopener" class="text-blue-600 hover:underline">http://dx.doi.org/10.1201/9781003049210-6</a></p>
   </details>
 
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="book">
@@ -1115,7 +1273,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">2. Kafy AA, Islam M, Sikdar S, et al. (2021). Remote Sensing-Based Approach...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, Islam M, Sikdar S, Ashrafi TJ, Al-Faisal A, Islam MA, Al Rakib A, Khan MH, Sarker MH, Ali MY. (2021). Remote Sensing-Based Approach to Identify the Influence of Land Use/Land Cover Change on the Urban Thermal Environment: A Case Study in Chattogram City, Bangladesh. Re-envisioning remote sensing applications (Taylor & Francis).</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, Islam M, Sikdar S, Ashrafi TJ, Al-Faisal A, Islam MA, Al Rakib A, Khan MH, Sarker MH, Ali MY. (2021). Remote Sensing-Based Approach to Identify the Influence of Land Use/Land Cover Change on the Urban Thermal Environment: A Case Study in Chattogram City, Bangladesh. Re-envisioning remote sensing applications (Taylor & Francis). <a href="http://dx.doi.org/10.1201/9781003049210-16" target="_blank" rel="noopener" class="text-blue-600 hover:underline">http://dx.doi.org/10.1201/9781003049210-16</a></p>
   </details>
 
   <!-- Reports -->
@@ -1124,7 +1282,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">1. Padigala, B., Rashid, Md. J., Kafy, AA, et al. (2022). Climate Resilient City Action Plan...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Padigala, B., Rashid, Md. J., Kafy, AA, Kolsepatil, N., Nagarajan, N., Mishra, P., Sadhukhan, B., & Chaturvedula, S. (2022). Climate Resilient City Action Plan Rajshahi, Bangladesh.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Padigala, B., Rashid, Md. J., Kafy, AA, Kolsepatil, N., Nagarajan, N., Mishra, P., Sadhukhan, B., & Chaturvedula, S. (2022). Climate Resilient City Action Plan Rajshahi, Bangladesh. <a href="https://southasia.iclei.org/publication/climate-resilient-city-action-plan-rajshahi-bangladesh/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/publication/climate-resilient-city-action-plan-rajshahi-bangladesh/</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="report">
@@ -1132,7 +1290,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">2. Kafy, AA., et al. (2023). Urban Climate Resilience Assessment Report...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., et al. (2023). Urban Climate Resilience Assessment Report for Rajshahi City Corporation. ICLEI South Asia.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., et al. (2023). Urban Climate Resilience Assessment Report for Rajshahi City Corporation. ICLEI South Asia. <a href="https://southasia.iclei.org/publication/greenhouse-gas-emission-inventory-report-2017-18-rajshahi/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/publication/greenhouse-gas-emission-inventory-report-2017-18-rajshahi/</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="report">
@@ -1140,7 +1298,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">3. Kafy, AA., et al. (2022). Green Infrastructure Assessment for Urban Heat Island Mitigation...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., et al. (2022). Green Infrastructure Assessment for Urban Heat Island Mitigation in Rajshahi City. Environmental Research Institute.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., et al. (2022). Green Infrastructure Assessment for Urban Heat Island Mitigation in Rajshahi City. Environmental Research Institute. <a href="https://southasia.iclei.org/publication/guidelines-for-development-of-open-green-spaces-in-rajshahi/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/publication/guidelines-for-development-of-open-green-spaces-in-rajshahi/</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="report">
@@ -1148,7 +1306,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">4. Kafy, AA., et al. (2021). Climate Vulnerability Assessment of Urban Infrastructure...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., et al. (2021). Climate Vulnerability Assessment of Urban Infrastructure in Bangladesh. Urban Development Authority.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., et al. (2021). Climate Vulnerability Assessment of Urban Infrastructure in Bangladesh. Urban Development Authority. <a href="https://southasia.iclei.org/publication/reducing-heat-impacts-in-rajshahi-city-bangladesh/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/publication/reducing-heat-impacts-in-rajshahi-city-bangladesh/</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="report">
@@ -1156,7 +1314,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">5. Kafy, AA., et al. (2020). Sustainable Urban Planning Guidelines...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., et al. (2020). Sustainable Urban Planning Guidelines for Climate Resilient Cities. Ministry of Environment and Forests.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA., et al. (2020). Sustainable Urban Planning Guidelines for Climate Resilient Cities. Ministry of Environment and Forests. <a href="https://southasia.iclei.org/publication/city-resilience-strategy_rajshahi/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/publication/city-resilience-strategy_rajshahi/</a></p>
   </details>
 
   <!-- News Articles -->
@@ -1165,7 +1323,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">1. Kafy, AA (2022). Urban LEDS-II: Rajshahi Approves Climate Action Plan</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2022). Urban LEDS-II: Rajshahi Approves Climate Action Plan.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2022). Urban LEDS-II: Rajshahi Approves Climate Action Plan. <a href="https://southasia.iclei.org/news/urban-leds-ii-rajshahi-approves-climate-action-plan/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/news/urban-leds-ii-rajshahi-approves-climate-action-plan/</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="news">
@@ -1173,7 +1331,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">2. Kafy, AA (2023). New Research Reveals Impact of Urban Green Spaces on Temperature</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2023). New Research Reveals Impact of Urban Green Spaces on Temperature. Environmental Science Today.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2023). New Research Reveals Impact of Urban Green Spaces on Temperature. Environmental Science Today. <a href="https://cdkn.org/story/feature-urban-development-must-be-planned-and-climate-resilient-experience-from-rajshahi-city-bangladesh" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://cdkn.org/story/feature-urban-development-must-be-planned-and-climate-resilient-experience-from-rajshahi-city-bangladesh</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="news">
@@ -1181,7 +1339,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">3. Kafy, AA (2022). Climate Change and Urban Planning: A New Approach</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2022). Climate Change and Urban Planning: A New Approach. Urban Development News.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2022). Climate Change and Urban Planning: A New Approach. Urban Development News. <a href="https://southasia.iclei.org/news/urban-leds-ii-in-rajshahi-narayanganj-leading-the-way-for-climate-resilient-development-in-bangladesh/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/news/urban-leds-ii-in-rajshahi-narayanganj-leading-the-way-for-climate-resilient-development-in-bangladesh/</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="news">
@@ -1189,7 +1347,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">4. Kafy, AA (2021). Sustainable Cities: The Future of Urban Development</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2021). Sustainable Cities: The Future of Urban Development. Climate Action News.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2021). Sustainable Cities: The Future of Urban Development. Climate Action News. <a href="https://urban-leds.org/rajshahi-advances-its-urban-greening-actions-and-completes-plantation-for-a-pilot-project-on-biodiversity-2/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://urban-leds.org/rajshahi-advances-its-urban-greening-actions-and-completes-plantation-for-a-pilot-project-on-biodiversity-2/</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="news">
@@ -1197,7 +1355,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">5. Kafy, AA (2020). Machine Learning Applications in Environmental Management</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2020). Machine Learning Applications in Environmental Management. Tech & Environment Journal.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2020). Machine Learning Applications in Environmental Management. Tech & Environment Journal. <a href="https://urban-leds.org/rajshahi-and-narayanganj-complete-assessments-of-climate-risks-vulnerabilities/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://urban-leds.org/rajshahi-and-narayanganj-complete-assessments-of-climate-risks-vulnerabilities/</a></p>
   </details>
 
   <!-- Conference Papers -->
@@ -1206,7 +1364,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">1. Kafy AA, Faisal AA, Sikdar S, et al. (2019). Using Geographic Information System...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, Faisal AA, Sikdar S, Hasan M, Ahmmed R. (2019). Using Geographic Information System and Remote Sensing Techniques in Environmental Management: A case study in Cumilla City Corporation. International Conference on Urban and Regional Planning, Dhaka, Bangladesh.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, Faisal AA, Sikdar S, Hasan M, Ahmmed R. (2019). Using Geographic Information System and Remote Sensing Techniques in Environmental Management: A case study in Cumilla City Corporation. International Conference on Urban and Regional Planning, Dhaka, Bangladesh. <a href="https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="conference">
@@ -1214,7 +1372,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">2. Kafy AA, et al. (2023). Artificial Intelligence in Urban Climate Modeling...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2023). Artificial Intelligence in Urban Climate Modeling: A Case Study of Heat Island Mitigation. International Conference on Climate Change and Urban Development, Singapore.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2023). Artificial Intelligence in Urban Climate Modeling: A Case Study of Heat Island Mitigation. International Conference on Climate Change and Urban Development, Singapore. <a href="https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="conference">
@@ -1222,7 +1380,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">3. Kafy AA, et al. (2022). Remote Sensing Applications for Urban Environmental Management...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2022). Remote Sensing Applications for Urban Environmental Management in Developing Countries. Global Conference on Environmental Science and Technology, Tokyo, Japan.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2022). Remote Sensing Applications for Urban Environmental Management in Developing Countries. Global Conference on Environmental Science and Technology, Tokyo, Japan. <a href="https://jidpus.buet.ac.bd/ICDRM2019/proceedings" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://jidpus.buet.ac.bd/ICDRM2019/proceedings</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="conference">
@@ -1230,7 +1388,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">4. Kafy AA, et al. (2021). Machine Learning Approaches for Land Use Change Prediction...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2021). Machine Learning Approaches for Land Use Change Prediction in Urban Areas. International Symposium on Geospatial Data Science, Berlin, Germany.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2021). Machine Learning Approaches for Land Use Change Prediction in Urban Areas. International Symposium on Geospatial Data Science, Berlin, Germany. <a href="http://103.99.128.19:8080/jspui/handle/123456789/57" target="_blank" rel="noopener" class="text-blue-600 hover:underline">http://103.99.128.19:8080/jspui/handle/123456789/57</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="conference">
@@ -1238,7 +1396,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">5. Kafy AA, et al. (2020). GIS-Based Analysis of Urban Growth Patterns...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2020). GIS-Based Analysis of Urban Growth Patterns and Their Environmental Impacts. Asian Conference on Remote Sensing, Bangkok, Thailand.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2020). GIS-Based Analysis of Urban Growth Patterns and Their Environmental Impacts. Asian Conference on Remote Sensing, Bangkok, Thailand. <a href="http://103.99.128.19:8080/jspui/handle/123456789/57" target="_blank" rel="noopener" class="text-blue-600 hover:underline">http://103.99.128.19:8080/jspui/handle/123456789/57</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="conference">
@@ -1246,7 +1404,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">6. Kafy AA, et al. (2019). Sustainable Urban Planning Strategies...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2019). Sustainable Urban Planning Strategies for Climate Resilient Cities. World Urban Planning Conference, Barcelona, Spain.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, et al. (2019). Sustainable Urban Planning Strategies for Climate Resilient Cities. World Urban Planning Conference, Barcelona, Spain. <a href="https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="conference">
@@ -1254,7 +1412,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">7. Kafy AA, Rahman MS, Ferdous L. (2017). Exploring the association of land cover change...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, Rahman MS. Ferdous.L., (2017). Exploring the association of land cover change and landslides in the Chittagong hill tracts (CHT): A remote sensing perspective. International Conference on Disaster Risk Management, Dhaka, Bangladesh.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy AA, Rahman MS. Ferdous.L., (2017). Exploring the association of land cover change and landslides in the Chittagong hill tracts (CHT): A remote sensing perspective. International Conference on Disaster Risk Management, Dhaka, Bangladesh. <a href="https://jidpus.buet.ac.bd/ICDRM2019/proceedings" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://jidpus.buet.ac.bd/ICDRM2019/proceedings</a></p>
   </details>
 </div>
 
@@ -1265,7 +1423,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">6. Altuwaijri, HA., Kafy, AA., Rahaman, ZA. (2025). Multi-temporal remote sensing...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., (2025). Multi-temporal remote sensing and geospatial analysis for urban ecosystem service dynamics: A three-decade assessment of land surface transformation in Jeddah, Saudi Arabia. Physics and Chemistry of the Earth, Parts A/B/C, 139, 103892.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., (2025). Multi-temporal remote sensing and geospatial analysis for urban ecosystem service dynamics: A three-decade assessment of land surface transformation in Jeddah, Saudi Arabia. Physics and Chemistry of the Earth, Parts A/B/C, 139, 103892. <a href="https://doi.org/10.1016/j.pce.2025.103892" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1016/j.pce.2025.103892</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
@@ -1273,7 +1431,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">7. Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Biophysical parameters...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Biophysical parameters and land surface temperature dynamics in arid urban environments: A comprehensive machine learning approach. Environmental Earth Sciences, 84(15), 434.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Biophysical parameters and land surface temperature dynamics in arid urban environments: A comprehensive machine learning approach. Environmental Earth Sciences, 84(15), 434. <a href="https://doi.org/10.1007/s12665-025-12427-6" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://doi.org/10.1007/s12665-025-12427-6</a></p>
   </details>
   
   <!-- Additional Journal Articles up to 40+ can be added here -->
@@ -1284,7 +1442,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">2. Rashid, M. J., Kafy, AA, Mishra, P., et al. (2022). Greenhouse Gas Emission Inventory Report...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rashid, M. J., Kafy, AA, Mishra, P., Padigala, B., Kolsepatil, N., & Chaturvedula, S. (2022). Greenhouse Gas Emission Inventory Report (2017-18), Rajshahi.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Rashid, M. J., Kafy, AA, Mishra, P., Padigala, B., Kolsepatil, N., & Chaturvedula, S. (2022). Greenhouse Gas Emission Inventory Report (2017-18), Rajshahi. <a href="https://southasia.iclei.org/publication/greenhouse-gas-emission-inventory-report-2017-18-rajshahi/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/publication/greenhouse-gas-emission-inventory-report-2017-18-rajshahi/</a></p>
   </details>
   
   <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="report">
@@ -1292,7 +1450,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">3. Sen, M., Kafy, AA, & Rashid, M. J. (2022). Guidelines for Development of Open Green Spaces...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Sen, M., Kafy, AA, & Rashid, M. J. (2022). Guidelines for Development of Open Green Spaces in Rajshahi.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Sen, M., Kafy, AA, & Rashid, M. J. (2022). Guidelines for Development of Open Green Spaces in Rajshahi. <a href="https://southasia.iclei.org/publication/guidelines-for-development-of-open-green-spaces-in-rajshahi/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://southasia.iclei.org/publication/guidelines-for-development-of-open-green-spaces-in-rajshahi/</a></p>
   </details>
   
   <!-- More News Articles -->
@@ -1301,7 +1459,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">2. Kafy, AA (2022). Urban development must be planned and climate-resilient...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2022). Urban development must be planned and climate-resilient: Experience from Rajshahi City, Bangladesh.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA (2022). Urban development must be planned and climate-resilient: Experience from Rajshahi City, Bangladesh. <a href="https://cdkn.org/story/feature-urban-development-must-be-planned-and-climate-resilient-experience-from-rajshahi-city-bangladesh" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://cdkn.org/story/feature-urban-development-must-be-planned-and-climate-resilient-experience-from-rajshahi-city-bangladesh</a></p>
   </details>
   
   <!-- More Conference Papers -->
@@ -1310,7 +1468,7 @@
       <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">2. Kafy, AA, Hasan, M, Faisal, AA, et al. (2019). Estimation of Urban Heat Islands Effect...</p>
       <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
     </summary>
-    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA, Hasan, M, Faisal, AA, Nipun, WH, Noman, AA.(2019). Estimation of Urban Heat Islands Effect and Its Impact on Climate Change: A Remote Sensing and GIS-Based Approach in Rajshahi District. International Conference on Urban and Regional Planning, Dhaka, Bangladesh.</p>
+    <p class="text-sm font-normal leading-normal pb-2 text-gray-500 dark:text-gray-400">Kafy, AA, Hasan, M, Faisal, AA, Nipun, WH, Noman, AA.(2019). Estimation of Urban Heat Islands Effect and Its Impact on Climate Change: A Remote Sensing and GIS-Based Approach in Rajshahi District. International Conference on Urban and Regional Planning, Dhaka, Bangladesh. <a href="https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://www.bip.org.bd/admin/uploads/bip-publication/publication-20/201912270424103.pdf</a></p>
   </details>
 </div>
 
@@ -1372,7 +1530,7 @@
     </div>
     <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
       <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-  <img src="site-assets/AAG 2023.JPG" alt="AAG 2023" class="w-full h-48 sm:h-56 object-cover">
+      <img src="site-assets/AAG 2023.JPG" alt="AAG 2023" class="w-full h-48 sm:h-56 object-cover">
         <div class="p-4">
           <h4 class="font-semibold text-primary">AAG 2023</h4>
           <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Conference participation.</p>
@@ -1406,6 +1564,37 @@
         </div>
       </div>
     </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+      <img src="site-assets/AAG 2023.JPG" alt="AAG 2023" class="w-full h-48 sm:h-56 object-cover">
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">AAG 2023</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Conference participation.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+      <img src="site-assets\Photo in Austin Downtown.JPG" alt="AAG 2023" class="w-full h-48 sm:h-56 object-cover">
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">AAG 2023</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Photo  in Austin Downtown.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+      <img src="site-assets/UT Austin Campus(3).JPG" alt="UT Austin Campus" class="w-full h-48 sm:h-56 object-cover">
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">UT Austin Campus</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">UT Austin campus photo.</p>
+        </div>
+      </div>
+    </div>
+    
   </div>
   
   <!-- Right Arrow Button -->
@@ -1425,6 +1614,15 @@
       <li>Evaluating and grading exercises, both in discussion sections and for homework assignments</li>
       <li>Assisting students with their coursework during class and office hours</li>
       <li>Tracking student participation and attendance</li>
+    </ul>
+  </div>
+  
+  <div>
+    <h4 class="font-semibold text-primary">Provost's Graduate Excellence Fellow</h4>
+    <p class="text-gray-500 dark:text-gray-400">The University of Texas at Austin • Austin, TX | August 2022 – August 2023</p>
+    <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mt-1">
+      <li>Engage in research, teaching, and academic activities related to Environmental Sustainability.</li>
+      <li>Participate in conferences, workshops, and other professional development opportunities.</li>
     </ul>
   </div>
   <div>
@@ -1769,6 +1967,10 @@
 <a class="fixed bottom-5 right-5 bg-primary text-white p-3 rounded-full shadow-lg hover:opacity-90 transition-opacity" href="#hero">
 <span class="material-symbols-outlined">arrow_upward</span>
 </a>
+<!-- Left edge toggle button: appears when sidebar is collapsed -->
+<button id="sidebarEdgeToggle" aria-label="Open sidebar" class="fixed top-1/2 left-0 -translate-y-1/2 hidden items-center justify-center p-2 rounded-r-md bg-primary text-white shadow-lg z-50">
+  <span class="material-symbols-outlined">menu</span>
+</button>
 </div>
 
 <script>
@@ -1986,5 +2188,32 @@
       });
     }
   });
+</script>
+<!-- Sidebar toggle script -->
+<script>
+  (function(){
+    const storageKey = 'site_sidebar_collapsed';
+    const btn = document.getElementById('sidebarToggle');
+    const icon = document.getElementById('sidebarToggleIcon');
+    function setCollapsed(collapsed){
+      try{ if(collapsed) document.body.classList.add('sidebar-collapsed'); else document.body.classList.remove('sidebar-collapsed'); }catch(e){}
+      if(icon) icon.textContent = collapsed ? 'chevron_right' : 'chevron_left';
+  if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+  try{ const btnExt = document.getElementById('sidebarToggleExternal'); if(btnExt) btnExt.setAttribute('aria-expanded', String(!collapsed)); }catch(e){}
+  try{ const btnEdge = document.getElementById('sidebarEdgeToggle'); if(btnEdge) btnEdge.setAttribute('aria-expanded', String(!collapsed)); }catch(e){}
+      try{ localStorage.setItem(storageKey, collapsed ? '1' : '0'); }catch(e){}
+    }
+    // initialize
+    try{
+      const stored = localStorage.getItem(storageKey);
+      setCollapsed(stored === '1');
+    }catch(e){ setCollapsed(false); }
+  // Also attach the external toggles (header and edge) so user can re-open when sidebar is collapsed
+  const btnExternal = document.getElementById('sidebarToggleExternal');
+  const btnEdge = document.getElementById('sidebarEdgeToggle');
+  if(btn){ btn.addEventListener('click', function(){ setCollapsed(!document.body.classList.contains('sidebar-collapsed')); }); }
+  if(btnExternal){ btnExternal.addEventListener('click', function(){ setCollapsed(!document.body.classList.contains('sidebar-collapsed')); }); }
+  if(btnEdge){ btnEdge.addEventListener('click', function(){ setCollapsed(!document.body.classList.contains('sidebar-collapsed')); }); }
+  })();
 </script>
 </body></html>
