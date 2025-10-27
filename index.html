@@ -43,22 +43,7 @@
             -ms-overflow-style: none;scrollbar-width: none;}
         .scroll-container::-webkit-scrollbar {
             display: none;}
-    /* Sidebar collapse behavior: when body has .sidebar-collapsed hide the sidebar and reset main margin */
-    body.sidebar-collapsed #sidebar {
-      display: none !important;
-    }
-    body.sidebar-collapsed main {
-      margin-left: 0 !important;
-    }
-    /* Edge toggle button: hidden by default, visible when sidebar is collapsed */
-    #sidebarEdgeToggle {
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
-    body.sidebar-collapsed #sidebarEdgeToggle {
-      display: flex !important;
-    }
+    /* Sidebar is static and always visible. Collapse rules removed to keep sidebar permanently shown. */
     /* transition for smoother collapse */
     main {
       transition: margin-left 0.18s ease;
@@ -70,31 +55,29 @@
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
 
-<!-- Sidebar (visible on md+) -->
-<aside id="sidebar" class="hidden md:fixed md:inset-y-0 md:left-0 md:w-64 md:flex md:flex-col md:py-8 md:px-6 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark">
+<!-- Sidebar (static) -->
+<aside id="sidebar" class="fixed inset-y-0 left-0 w-64 flex flex-col py-8 px-6 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark">
   <div class="flex items-center gap-3 mb-6 relative">
     <span class="material-symbols-outlined text-primary text-2xl">science</span>
-    <button id="sidebarToggle" aria-expanded="true" title="Collapse sidebar" class="toggle-btn hidden md:inline-flex items-center justify-center p-1 ml-auto rounded-md bg-primary/10 text-primary">
-      <span id="sidebarToggleIcon" class="material-symbols-outlined">chevron_left</span>
-    </button>
   </div>
   <nav class="flex flex-col gap-3">
     <!-- Sidebar navigation ordered per requested sequence. Only these headings are shown. -->
     <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#about">About</a>
     <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#education">Education</a>
-    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#news">News</a>
-    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#fellowships">Fellowships, Awards &amp; Research Grants</a>
-    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#research-experience">Academic Appointments</a>
+        <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#research-experience">Academic Appointments</a>
     <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#experience">Industrial Appointments</a>
-    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#workshops">Workshops and Conferences</a>
+ <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#publications">Publications</a>
+ 
+    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#fellowships">Fellowships, Awards &amp; Research Grants</a>
+   
+    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#workshops">Workshops, Presentations, And Certifications</a>
+    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#gallery">Moments & Milestones </a>
     <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#services">Service</a>
-    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#publications">Publications</a>
-    <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#gallery">Gallery</a>
     <a class="text-sm font-medium leading-normal hover:text-primary text-left pl-1" href="#contact">Contact</a>
   </nav>
 </aside>
 
-<main class="flex flex-col max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 gap-12 md:ml-64">
+<main class="flex flex-col max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 gap-12 ml-64">
 <section class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left" id="hero">
 <div 
   class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-40 w-40 shadow-lg" 
@@ -159,6 +142,40 @@
       <span class="mx-2 text-gray-400">•</span>
       <a href="mailto:abdulla-al.kafy@localpathways.org" class="text-primary hover:underline">abdulla-al.kafy@localpathways.org</a>
     </p>
+    <h4 class="font-semibold text-primary">Address</h4>
+    <p class="text-gray-600 dark:text-gray-300 mt-2"> Robert L. Patton Building (RLP), Digital Landscape Lab, RLP 3.306, 
+305 E 23rd St, Austin, TX 78712
+<p>
+  </div>
+  <h4 class="font-semibold text-primary">News</h4>
+  <div class="space-y-3">
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>10/18/2025</strong> — I was awarded the Scholars Lab Fellowship ($3,000).</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>08/01/2025</strong> — I was awarded the Harry E. and Bernice M. Moore Fellowship ($20,000).</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>05/12/2025</strong> — I received the Robert E. Veselka Memorial Fellowship - 2025 ($1,500).</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>05/10/2025</strong> — Completed 1 year of my PhD; CGPA: 4.00 (Fall 2024 & Spring 2025).</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>11/22/2024</strong> — Presented a poster at Geography 2050 — <a href="https://www.geography2050.org/2024-speaker-library/mr-abdullah-al-kafy" target="_blank" rel="noopener" class="text-primary hover:underline">Event entry</a>.</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>11/18/2024</strong> — Presented a poster at UT GIS Day – 2024.</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>11/18/2024</strong> — Awarded First Prize for the poster presentation at UT GIS Day – 2024.</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>10/06/2024</strong> — Presented a Graduate Student Research Paper at SWAAG – 2024.</p>
+    </div>
+    <div class="text-sm text-gray-600 dark:text-gray-300">
+      <p><strong>10/08/2024</strong> — Received Third Prize at the Graduate Student Research Paper Competition at SWAAG - 2024.</p>
+    </div>
   </div>
 
   <div class="mt-4">
@@ -191,6 +208,13 @@
       <a href="https://www.scopus.com/authid/detail.uri?authorId=57210159755" target="_blank" rel="noopener" aria-label="Scopus" class="inline-flex items-center">
             <img src="site-assets/scopus.png" alt="Scopus" class="w-12 h-12 rounded-full overflow-hidden"/>
 
+      </a>
+
+         <a href="https://github.com/AbdullaKafy" target="_blank" rel="noopener" aria-label="ORCID" class="inline-flex items-center">
+        <img src="site-assets/github.png" alt="Github" class="w-12 h-12 rounded-full overflow-hidden"/>
+      </a>
+         <a href="https://x.com/abdullakafy" target="_blank" rel="noopener" aria-label="ORCID" class="inline-flex items-center">
+        <img src="site-assets/twitter.png" alt="Github" class="w-12 h-12 rounded-full overflow-hidden"/>
       </a>
     </div>
   </div>
@@ -239,245 +263,472 @@
   </div>
 </section>
 
-<section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="news">
-  <h3 class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">News</h3>
-  <div class="space-y-3">
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>10/18/2025</strong> — I was awarded the Scholars Lab Fellowship ($3,000).</p>
-    </div>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>08/01/2025</strong> — I was awarded the Harry E. and Bernice M. Moore Fellowship ($20,000).</p>
-    </div>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>05/12/2025</strong> — I received the Robert E. Veselka Memorial Fellowship - 2025 ($1,500).</p>
-    </div>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>05/10/2025</strong> — Completed 1 year of my PhD; CGPA: 4.00 (Fall 2024 & Spring 2025).</p>
-    </div>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>11/22/2024</strong> — Presented a poster at Geography 2050 — <a href="https://www.geography2050.org/2024-speaker-library/mr-abdullah-al-kafy" target="_blank" rel="noopener" class="text-primary hover:underline">Event entry</a>.</p>
-    </div>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>11/18/2024</strong> — Presented a poster at UT GIS Day – 2024.</p>
-    </div>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>11/18/2024</strong> — Awarded First Prize for the poster presentation at UT GIS Day – 2024.</p>
-    </div>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>10/06/2024</strong> — Presented a Graduate Student Research Paper at SWAAG – 2024.</p>
-    </div>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <p><strong>10/08/2024</strong> — Received Third Prize at the Graduate Student Research Paper Competition at SWAAG - 2024.</p>
-    </div>
-  </div>
-</section>
 
-<section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="fellowships">
-<h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Fellowships, Awards & Research Grants</h3>
-<div class="space-y-4">
+
+<section
+  class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md"
+  id="fellowships"
+>
+  <h3
+    class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark text-center"
+  >
+    Fellowships, Awards & Research Grants
+  </h3>
+
+  <div class="grid gap-6 md:grid-cols-2 items-stretch">
+    <!-- 1 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/Harry E. and Bernice M. Moore Fellowship.png"
+        alt="Harry E. and Bernice M. Moore Fellowship"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">Harry E. and Bernice M. Moore Fellowship (20,000$)</h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Funding support for completing PhD dissertation
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">
+          Hogg Foundation for Mental Health, The University of Texas at Austin
+        </p>
+        <p class="text-sm text-gray-400">Austin, TX | Fall 2025 – Spring 2026</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/Scholars Lab Fellowships.png"
+        alt="Scholars Lab Fellowship"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">Scholars Lab Fellowship (3,000$)</h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Funding for completing a project involving data, digital collections, or digital methods.
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">
+          The University of Texas at Austin Libraries
+        </p>
+        <p class="text-sm text-gray-400">Austin, TX | Fall 2025 – Spring 2026</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/Provost's Graduate Excellence Fellowship.png"
+        alt="Provost's Graduate Excellence Fellowship"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">
+          Provost's Graduate Excellence Fellowship (50,000$)
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Funding support for completing MA and PhD
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">
+          Department of Geography and the Environment, UT Austin
+        </p>
+        <p class="text-sm text-gray-400">
+          Austin, TX | Fall 2022 – Spring 2023 & Fall 2025 – Spring 2026
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/Robert E. Veselka Memorial Fellowship.png"
+        alt="Robert E. Veselka Memorial Fellowship"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">
+          Robert E. Veselka Memorial Fellowship - 2025 (1,500$)
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Funding support for completing dissertation fieldwork.
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">
+          Department of Geography and the Environment, UT Austin
+        </p>
+        <p class="text-sm text-gray-400">Austin, TX | Summer 2025</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/COLA Dissertation Research Award.png"
+        alt="COLA Dissertation Research Award"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">
+          COLA Dissertation Research Award - 2024 (500$)
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Funding support for completing dissertation fieldwork.
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">
+          Department of Geography and the Environment, UT Austin
+        </p>
+        <p class="text-sm text-gray-400">Austin, TX | Summer 2024</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/First Position in Research Poster at UT GIS Day 2024.png"
+        alt="First Position in Research Poster"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">
+          First Position in Research Poster at UT GIS Day 2024 (250$)
+        </h4>
+        <p class="text-gray-500 dark:text-gray-400">The University of Texas Libraries</p>
+        <p class="text-sm text-gray-400">Austin, TX | November 2024</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/AGS Council Fellowship.png"
+        alt="AGS Council Fellowship"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">AGS Council Fellowship - 2024 (2,000$)</h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Graduate student scholarship for geographical research and fieldwork.
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">American Geographical Society</p>
+        <p class="text-sm text-gray-400">New York, NY | March 2024 – March 2025</p>
+      </div>
+    </div>
+<!-- Professional Development Award - 2024 -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm">
+  <img
+    src="/site-assets/Professional Development Award.png"
+    alt="Professional Development Award"
+    class="rounded-md w-28 h-28 object-contain bg-gray-100"
+  />
   <div>
-    <h4 class="font-semibold text-primary">Harry E. and Bernice M. Moore Fellowship (20,000$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">Hogg Foundation for Mental Health, The University of Texas at Austin | Fall 2025 – Spring 2026</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding support for completing PhD dissertation</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Scholars Lab Fellowship (3000$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">The University of Texas at Austin Libraries | Fall 2025 – Spring 2026</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding for completing a project that involves data, digital collections, digital methods/platforms.</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Provost's Graduate Excellence Fellowship (50,000$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">Department of Geography and the Environment, The University of Texas at Austin | Fall 2022 – Spring 2023 and Fall 2025 – Spring 2026</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding support for completing MA and PhD</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Robert E. Veselka Memorial Fellowship - 2025 (1500$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">Department of Geography and the Environment, The University of Texas at Austin | Summer 2025</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding support for completing dissertation fieldwork.</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">COLA Dissertation Research Award - 2024 (500$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">Department of Geography and the Environment, The University of Texas at Austin | Summer 2024</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding support for completing dissertation fieldwork.</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">First Position in Research Poster at UT GIS Day 2024 (250$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">The University of Texas Libraries | November 2024</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">AGS Council Fellowship - 2024 (2000$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">American Geographical Society | March 2024 - March 2025</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Graduate student scholarship in pursuit of geographical knowledge and fieldwork</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Graduate Student Paper Competition Third Position– 2024 (100$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">SWAAG Annual Meeting | October, 2024</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Robert E. Veselka Memorial Fellowship - 2023 (2000$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">Department of Geography and the Environment, The University of Texas at Austin | Summer 2023</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding support for completing dissertation fieldwork.</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Professional Development Award - 2023 (1200$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">Department of Geography and the Environment, The University of Texas at Austin | January 2023 - April 2023</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding support to attend professional meetings & conferences to disseminate research findings.</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Travel Grant for Urban Climate Solutions Workshop – 2023 (500$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">School of Architecture, Texas A&M University | October 9-10, 2023</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding support to present research paper on Exploring the role of vegetation dynamics in modulating summer diurnal surface temperature</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Fundamental Research Grants Scheme (8000$)</h4>
-    <p class="text-gray-500 dark:text-gray-400">Ministry of Education of Malaysia | August 2022 - July 2024</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Project Title: Developing a framework for environmental sustainability by mitigating ecological risk in the fastest-growing urban fabric.</p>
-  </div>
-  
-  <div>
-    <h4 class="font-semibold text-primary">Local Pathways Fellowship</h4>
-    <p class="text-gray-500 dark:text-gray-400">UN Sustainable Development Solutions Network (SDSN) | Sept 2018-Dec 2019</p>
-    <p class="text-gray-600 dark:text-gray-300 mt-1">Project: Effective Land Use Management for Ensuring Inclusive and Sustainable Urbanization in Rajshahi City, Bangladesh (SDG Goal 11)</p>
+    <h4 class="font-semibold text-primary">Professional Development Award - 2024 (250$)</h4>
+    <p class="text-gray-600 dark:text-gray-300 mt-1">
+      Funding support to attend professional meetings & conferences to disseminate research findings.
+    </p>
+    <p class="text-gray-500 dark:text-gray-400">
+      Department of Geography and the Environment, The University of Texas at Austin
+    </p>
+    <p class="text-sm text-gray-400">Austin, TX | January 2023 – April 2023</p>
   </div>
 </div>
+
+<!-- Graduate Student Paper Competition Third Position – 2024 -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm">
+  <img
+    src="/site-assets/Graduate Student Paper Competition Third Position – 2024.png"
+    alt="Graduate Student Paper Competition Third Position – 2024"
+    class="rounded-md w-28 h-28 object-contain bg-gray-100"
+  />
+  <div>
+    <h4 class="font-semibold text-primary">Graduate Student Paper Competition Third Position – 2024 (100$)</h4>
+    <p class="text-gray-600 dark:text-gray-300 mt-1">SWAAG Annual Meeting</p>
+    <p class="text-gray-500 dark:text-gray-400">San Marcos, TX</p>
+    <p class="text-sm text-gray-400">October 2024</p>
+  </div>
+</div>
+
+<!-- Robert E. Veselka Memorial Fellowship - 2023 -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm">
+  <img
+    src="/site-assets/Robert E. Veselka Memorial Fellowship.png"
+    alt="Robert E. Veselka Memorial Fellowship"
+    class="rounded-md w-28 h-28 object-contain bg-gray-100"
+  />
+  <div>
+    <h4 class="font-semibold text-primary">Robert E. Veselka Memorial Fellowship - 2023 (2000$)</h4>
+    <p class="text-gray-600 dark:text-gray-300 mt-1">Funding support for completing dissertation fieldwork.</p>
+    <p class="text-gray-500 dark:text-gray-400">
+      Department of Geography and the Environment, The University of Texas at Austin
+    </p>
+    <p class="text-sm text-gray-400">Austin, TX | Summer 2023</p>
+  </div>
+</div>
+
+<!-- Professional Development Award - 2023 -->
+<div class="flex gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm">
+  <img
+    src="/site-assets/Professional Development Award.png"
+    alt="Professional Development Award"
+    class="rounded-md w-28 h-28 object-contain bg-gray-100"
+  />
+  <div>
+    <h4 class="font-semibold text-primary">Professional Development Award - 2023 (1200$)</h4>
+    <p class="text-gray-600 dark:text-gray-300 mt-1">
+      Funding support to attend professional meetings & conferences to disseminate research findings.
+    </p>
+    <p class="text-gray-500 dark:text-gray-400">
+      Department of Geography and the Environment, The University of Texas at Austin
+    </p>
+    <p class="text-sm text-gray-400">Austin, TX | January 2023 – April 2023</p>
+  </div>
+</div>
+
+
+    <!-- 9 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/Travel Grant for Urban Climate Solutions Workshop.png"
+        alt="Travel Grant for Urban Climate Solutions Workshop"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">
+          Travel Grant for Urban Climate Solutions Workshop – 2023 (500$)
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Presented research on vegetation dynamics and surface temperature modulation.
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">
+          School of Architecture, Texas A&M University
+        </p>
+        <p class="text-sm text-gray-400">
+          College Station, TX | October 9–10, 2023
+        </p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/Fundamental Research Grants Scheme.png"
+        alt="Fundamental Research Grants Scheme"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">Fundamental Research Grants Scheme (8,000$)</h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Developing a framework for environmental sustainability by mitigating ecological risk.
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">Ministry of Education of Malaysia</p>
+        <p class="text-sm text-gray-400">Malaysia | August 2022 – July 2024</p>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="flex items-start gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm h-full">
+      <img
+        src="/site-assets/Local Pathways Fellowship.jpg"
+        alt="Local Pathways Fellowship"
+        class="rounded-md w-24 h-24 object-contain bg-gray-100 flex-shrink-0"
+      />
+      <div>
+        <h4 class="font-semibold text-primary">Local Pathways Fellowship</h4>
+        <p class="text-gray-600 dark:text-gray-300 mt-1">
+          Project: Sustainable Urbanization in Rajshahi City, Bangladesh (SDG 11)
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">
+          UN Sustainable Development Solutions Network (SDSN)
+        </p>
+        <p class="text-sm text-gray-400">New York (Remote) | Sept 2018 – Dec 2019</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="research-experience">
-<h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Academic Appointments</h3>
-<div class="space-y-4">
-  <!-- Reformatted academic appointments: concise, consistent lines -->
-  <div>
-    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Provost's Graduate Excellence Fellow — Department of Geography &amp; the Environment, The University of Texas at Austin • Aug 2022 – Aug 2023 (Austin, TX)</p>
-    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Supported research and teaching in environmental sustainability, mentored students, and participated in professional development.</p>
-  </div>
+  <h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Academic Appointments</h3>
 
-  <div>
-    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Publication Associate (Consultant) — University of Liberal Arts Bangladesh • Oct 2020 – Aug 2022 (Dhaka, Bangladesh)</p>
-    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Edited and prepared reports and manuscripts on sustainability, resilience, and social science topics for publication.</p>
-  </div>
+  <div class="space-y-6">
+    
+    <!-- Appointment 1 -->
+    <div class="flex items-start space-x-4">
+      <img src="site-assets\uta.png" alt="UT Austin Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          The University of Texas at Austin — Graduate Teaching Assistant
+        </p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Leading discussion sessions and labs, offering clear explanations and guidance on course material.</li>
+          <li>Evaluated and graded a variety of exercises, both in discussion sections and for homework assignments.</li>
+          <li>Readily available to assist students with their coursework during class and office hours.</li>
+          <li>Tracking student participation and attendance, ensuring a conducive learning environment.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Austin, TX • August 2023 – Present</p>
+      </div>
+    </div>
 
-  <div>
-    <p class="text-sm font-semibold text-text-light dark:text-text-dark">GIS Specialist — B &amp; F Company Ltd. • May 2018 – Sep 2018 (Rajshahi, Bangladesh)</p>
-    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Conducted land-use mapping, satellite data processing, and produced 2D/3D visualizations and suitability analyses.</p>
-  </div>
+    <!-- Appointment 2 -->
+    <div class="flex items-start space-x-4">
+      <img src="site-assets\uta.png" alt="UT Austin Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          The University of Texas at Austin — Provost's Graduate Excellence Fellow
+        </p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Engaged in research, teaching, and academic activities related to environmental sustainability.</li>
+          <li>Participated in conferences, workshops, and professional development opportunities.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Austin, TX • August 2022 – August 2023</p>
+      </div>
+    </div>
 
-  <div>
-    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Research Consultant — Center for Environmental &amp; Geographic Information Services (CEGIS) • Nov 2017 – Apr 2018 (Dhaka, Bangladesh)</p>
-    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Developed remote-sensing databases, DEMs, and performed digitization and quality assurance tasks.</p>
-  </div>
+    <!-- Appointment 3 -->
+    <div class="flex items-start space-x-4">
+      <img src="site-assets\ulab.png" alt="ULAB Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          University of Liberal Arts Bangladesh (ULAB) — Publication Associate (Consultant)
+        </p>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">
+          <span class="font-semibold">Project:</span> Building Resilient Universities: Promotion of Democratic Citizenship and Media Literacy.
+        </p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Refined and published reports on environmental sustainability, resilience management, COVID-19, social science, and business management.</li>
+          <li>Enhanced manuscripts for peer-reviewed journals by strengthening methodology, results, and language structure.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Dhaka, Bangladesh • October 2020 – Present</p>
+      </div>
+    </div>
 
-  <div>
-    <p class="text-sm font-semibold text-text-light dark:text-text-dark">GIS Consultant — Eusuf and Associates • Apr 2017 – Oct 2017 (Rajshahi, Bangladesh)</p>
-    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Mapped slum catchments, performed ground-truthing and topographic surveys for urban health service projects.</p>
   </div>
-
-  <div>
-    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Research Assistant — Bangladesh Institute of Planners • Mar 2017 – Sep 2017 (Rajshahi, Bangladesh)</p>
-    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Conducted surveys, data entry, spatial analysis, and documentation for active transportation indicators.</p>
-  </div>
-
-  <div>
-    <p class="text-sm font-semibold text-text-light dark:text-text-dark">Research Consultant — Caritas Bangladesh • Apr 2016 – Oct 2016 (Rajshahi, Bangladesh)</p>
-    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Participated in community development mapping and spatial data collection for the ICDP project.</p>
-  </div>
-
-</div>
 </section>
 <section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="experience">
-<h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Industrial Appointments</h3>
-<div class="grid grid-cols-[auto_1fr] gap-x-4">
-<div class="flex flex-col items-center gap-1 pt-2">
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-</div>
-<div class="flex flex-1 flex-col pb-8">
-<p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">Graduate Teaching Assistant</p>
-<p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">The University of Texas at Austin • August 2023 – Present</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Leading discussion sessions and labs, offering clear explanations and guidance on course material. Evaluated and graded a variety of exercises, both in discussion sections and for homework assignments. Readily available to assist students with their coursework during class and office hours. Tracking student's participation and attendance, ensuring a conducive learning environment.</p>
-</div>
-<div class="flex flex-col items-center gap-1">
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-</div>
-<div class="flex flex-1 flex-col pb-8">
-<p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">Provost's Graduate Excellence Fellow</p>
-<p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">The University of Texas at Austin • August 2022 – August 2023</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Engage in research, teaching, and academic activities related to Environmental Sustainability. Participate in conferences, workshops, and other professional development opportunities.</p>
-</div>
-<div class="flex flex-col items-center gap-1">
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-</div>
-<div class="flex flex-1 flex-col pb-8">
-<p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">Urban Planner and Project Officer</p>
-<p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">ICLEI – Local Government for Sustainability • November 2019 - July 2022</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Remote sensing database creation, monitoring, and ensuring the quality of datasets. Mapping land cover, natural assets, fragile urban system, climate risk, and vulnerable hotspots. City profile, vulnerability assessment, and Greenhouse Gas emission report preparation. Developed project reports and Terms of Reference (ToR). Identify potential climate change and environmental protection-related projects.</p>
-</div>
-<div class="flex flex-col items-center gap-1">
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-<div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-</div>
-<div class="flex flex-1 flex-col pb-8">
-<p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">GIS Specialist</p>
-<p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">Rajshahi Development Authority • October 2018 – October 2019</p>
-<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Remote sensing database preparation, error checking, and digitization. Land use map preparation using commercial and freely available satellite images. Suitability analysis and risk assessment. Provide methodological and technical support in data acquisition. Monitor and ensure the quality of the fieldwork and data management.</p>
-</div>
-</div>
-<div class="mt-6 flex justify-center">
-  <button id="showMoreExperienceBtn" class="bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-lg transition-colors">
-    Show More Experience
-  </button>
-</div>
-<div id="moreExperience" class="hidden mt-6 grid grid-cols-[auto_1fr] gap-x-4">
-  <div class="flex flex-col items-center gap-1 pt-2">
-    <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-  </div>
-  <div class="flex flex-1 flex-col pb-8">
-    <p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">GIS Specialist</p>
-    <p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">B & F Company Ltd. • May 2018 - September 2018</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Land use map preparation using RapidEye and Landsat images. Data acquisition from satellite and ground-based platforms. Preparation of layout plan and 3D visualization. Land suitability analysis. Project completion report preparation.</p>
-  </div>
-  <div class="flex flex-col items-center gap-1">
-    <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-    <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-  </div>
-  <div class="flex flex-1 flex-col pb-8">
-    <p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">Research Consultant</p>
-    <p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">Center for Environmental and Geographic Information Services • November 2017 - April 2018</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Land use map preparation using Rapid Eye, Sentinel, and Landsat images. Remote sensing database creation and error checking. DEM creation, Digitizing, topology, and error correction.</p>
-  </div>
-  <div class="flex flex-col items-center gap-1">
-    <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-    <div class="w-[2px] bg-border-light dark:bg-border-dark h-full"></div>
-  </div>
-  <div class="flex flex-1 flex-col pb-8">
-    <p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">GIS Consultant</p>
-    <p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">Eusuf and Associates • April 2017 - October 2017</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Project: Urban Primary Health Care Services Delivery Project (UPHCSDP). Mapping the Slum catchment area using GPS, GIS, and Remote sensing data. Ground Truthing using GIS & GPS. Topographical survey. Project report preparation.</p>
-  </div>
-  <div class="flex flex-col items-center gap-1 pb-2">
-    <div class="w-[2px] bg-border-light dark:bg-border-dark h-2"></div>
-  </div>
-  <div class="flex flex-1 flex-col">
-    <p class="text-base font-medium leading-normal text-text-light dark:text-text-dark">Research Consultant</p>
-    <p class="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">Caritas Bangladesh • April 2016 - October 2016</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Project: Integrated Community Development Project (ICDP). Mapping the Slum catchment area using GPS, GIS, and Remote sensing data. Ground Truthing using GIS & GPS. Topographical survey.</p>
-  </div>
-</div>
+  <h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">Industrial Appointments</h3>
 
-<script>
-  // Experience button functionality will be handled in the main script at the bottom of the page
-</script>
+  <div class="space-y-6">
+    
+    <!-- 1. ICLEI -->
+    <div class="flex items-start space-x-4">
+      <img src="/site-assets/iclei.jpg" alt="ICLEI Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          ICLEI – Local Government for Sustainability (International NGO) — Urban Planner and Project Officer
+        </p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Remote sensing database creation, monitoring, and ensuring the quality of datasets.</li>
+          <li>Mapping land cover, natural assets, fragile urban systems, climate risks, and vulnerable hotspots.</li>
+          <li>Prepared city profiles, vulnerability assessments, and Greenhouse Gas emission reports.</li>
+          <li>Developed project reports and Terms of Reference (ToR).</li>
+          <li>Identified potential climate change and environmental protection-related projects.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Rajshahi, Bangladesh • November 2019 – July 2022</p>
+      </div>
+    </div>
+
+    <!-- 2. Rajshahi Development Authority -->
+    <div class="flex items-start space-x-4">
+      <img src="/site-assets/rda.png" alt="Rajshahi Development Authority Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          Rajshahi Development Authority (Government Organization) — GIS Specialist
+        </p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Prepared remote sensing databases, performed error checking, and digitization.</li>
+          <li>Created land use maps using commercial and freely available satellite imagery.</li>
+          <li>Conducted suitability analyses and risk assessments.</li>
+          <li>Provided methodological and technical support in data acquisition.</li>
+          <li>Monitored and ensured the quality of fieldwork and data management.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Rajshahi, Bangladesh • October 2018 – October 2019</p>
+      </div>
+    </div>
+
+    <!-- 3. B & F Company Ltd. -->
+    <div class="flex items-start space-x-4">
+      <img src="/site-assets/baf.jpg" alt="B & F Company Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          B &amp; F Company Ltd. — GIS Specialist
+        </p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Prepared land use maps using RapidEye and Landsat images.</li>
+          <li>Collected data from satellite and ground-based platforms.</li>
+          <li>Created layout plans and 3D visualizations.</li>
+          <li>Performed land suitability analyses.</li>
+          <li>Prepared project completion reports.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Dhaka, Bangladesh • May 2018 – September 2018</p>
+      </div>
+    </div>
+
+    <!-- 4. CEGIS -->
+    <div class="flex items-start space-x-4">
+      <img src="/site-assets/cegis.png" alt="CEGIS Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          Center for Environmental and Geographic Information Services (Non-Profit Organization) — Research Consultant
+        </p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Prepared land use maps using RapidEye, Sentinel, and Landsat images.</li>
+          <li>Created and validated remote sensing databases.</li>
+          <li>Generated DEMs, performed digitization, topology correction, and error validation.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Dhaka, Bangladesh • November 2017 – April 2018</p>
+      </div>
+    </div>
+
+    <!-- 5. Eusuf and Associates -->
+    <div class="flex items-start space-x-4">
+      <img src="/site-assets/aa.png" alt="Eusuf and Associates Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          Eusuf and Associates — GIS Consultant
+        </p>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mt-1"><span class="font-semibold">Project:</span> Urban Primary Health Care Services Delivery Project (UPHCSDP)</p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Mapped slum catchment areas using GPS, GIS, and remote sensing data.</li>
+          <li>Conducted ground truthing using GIS & GPS tools.</li>
+          <li>Performed topographical surveys and report preparation.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Dhaka, Bangladesh • April 2017 – October 2017</p>
+      </div>
+    </div>
+
+    <!-- 6. Bangladesh Institute of Planners -->
+    <div class="flex items-start space-x-4">
+      <img src="/site-assets/bip.png" alt="BIP Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          Bangladesh Institute of Planners (BIP) — Research Assistant
+        </p>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mt-1"><span class="font-semibold">Project:</span> Developing Active Transportation Indicators for Rajshahi, Bangladesh.</p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Conducted travel behavior questionnaire surveys.</li>
+          <li>Performed data entry and analysis.</li>
+          <li>Mapped travel behavior variables and documented survey results.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Dhaka, Bangladesh • March 2017 – September 2017</p>
+      </div>
+    </div>
+
+    <!-- 7. Caritas Bangladesh -->
+    <div class="flex items-start space-x-4">
+      <img src="/site-assets/cb.png" alt="Caritas Bangladesh Logo" class="w-14 h-14 rounded-full object-cover">
+      <div>
+        <p class="text-base font-semibold text-text-light dark:text-text-dark">
+          Caritas Bangladesh — Research Consultant
+        </p>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mt-1"><span class="font-semibold">Project:</span> Integrated Community Development Project (ICDP)</p>
+        <ul class="list-disc ml-5 mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
+          <li>Mapped slum catchment areas using GPS, GIS, and remote sensing data.</li>
+          <li>Performed ground truthing using GIS & GPS tools.</li>
+          <li>Conducted topographical surveys and field data collection.</li>
+        </ul>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Rajshahi, Bangladesh • April 2016 – October 2016</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- Auto-add publication links from about.txt -->
 <script>
   (function(){
@@ -590,136 +841,217 @@
     });
   })();
 </script>
-</section>
-
 <section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="workshops">
-  <h3 class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Workshops and Conferences</h3>
-  
+  <h3 class="text-2xl font-bold mb-6 text-text-light dark:text-text-dark">
+    Workshops, Presentations, And Certifications
+  </h3>
+
   <div class="space-y-4">
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-      <h4 class="font-semibold text-lg">Poster presentation at UT GIS Day - 2024</h4>
-      <p class="text-gray-600 dark:text-gray-300">The University of Texas at Austin</p>
-      <p class="italic">Title: Neural Network Driven Thermal Cooling Efficiency Modeling of Strategically Placed Green Roofs Using LiDAR Derived 2D/3D Urban Characteristics</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Austin, TX | November 2024</p>
+    <!-- 2025 -->
+  
+  <!-- Geography 2050 - 2024 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/Geography2050.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
+      <h4 class="font-semibold text-lg">Poster Presentation at Geography 2050: Cooperation & Conflict In A Changing Climate - 2024</h4>
+      <p class="text-gray-600 dark:text-gray-300">The American Geographical Society</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Title: Predicting Green Roof Cooling Potential to Mitigate Diurnal Heat Island Intensity Using 2D/3D Urban Characteristics & LiDAR<br>
+        New York, NY | November 2024
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- UT GIS Day - 2024 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/utgisday.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
+      <h4 class="font-semibold text-lg">Poster Presentation at UT GIS Day - 2024</h4>
+      <p class="text-gray-600 dark:text-gray-300">The University of Texas at Austin</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Title: Neural Network Driven Thermal Cooling Efficiency Modeling of Strategically Placed Green Roofs Using LiDAR Derived 2D/3D Urban Characteristics<br>
+        Austin, TX | November 2024
+      </p>
+    </div>
+  </div>
+
+  <!-- SWAAG - 2024 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/swag.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">Graduate Student Research Paper Competition at SWAAG - 2024</h4>
       <p class="text-gray-600 dark:text-gray-300">Texas State University</p>
-      <p class="italic">Title: Enhancing cooling precision: Modeling green roofs potential to mitigate daytime heat intensity using 2D/3D urban indicators, Lidar, and machine learning algorithms</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">San Marcos, TX | October 6-8, 2024</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Title: Enhancing cooling precision: Modeling green roofs potential to mitigate daytime heat intensity using 2D/3D urban indicators, Lidar, and machine learning algorithms<br>
+        San Marcos, TX | October 6–8, 2024
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- CITI Program - 2025 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/CITI.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
+      <h4 class="font-semibold text-lg">Social and Behavioral Responsible Conduct of Research Course</h4>
+      <p class="text-gray-600 dark:text-gray-300">CITI Program, The University of Texas at Austin</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Austin, TX | May 2025</p>
+    </div>
+  </div>
+
+
+  <!-- Teaching Assistants Course - 2023 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/Teaching Assistants Course.jpg" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">Fundamentals for Teaching Assistants</h4>
       <p class="text-gray-600 dark:text-gray-300">Center for Teaching and Learning, The University of Texas at Austin</p>
       <p class="text-sm text-gray-500 dark:text-gray-400">Austin, TX | Fall 2023 (Aug – Dec)</p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-      <h4 class="font-semibold text-lg">Research Paper presentation at Urban Climate Solutions Workshop - 2023</h4>
+  </div>
+
+  <!-- Urban Climate Workshop - 2023 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/Urban Climate Workshop.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
+      <h4 class="font-semibold text-lg">Research Paper Presentation at Urban Climate Solutions Workshop - 2023</h4>
       <p class="text-gray-600 dark:text-gray-300">School of Architecture, Texas A&M University</p>
-      <p class="italic">Title: Exploring the role of vegetation dynamics in modulating summer diurnal surface temperature</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">College Station, TX | October 9-10, 2023</p>
-    </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-      <h4 class="font-semibold text-lg">Poster presentation at AAG - 2023</h4>
-      <p class="text-gray-600 dark:text-gray-300">The American Association of Geographers</p>
-      <p class="italic">Title: Microscale impacts assessment of urban expansion on seasonal urban heat island intensity using neural network algorithms</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Denver, CO | March 23-27, 2023</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Title: Exploring the role of vegetation dynamics in modulating summer diurnal surface temperature<br>
+        College Station, TX | October 9–10, 2023
+      </p>
     </div>
   </div>
-  
-  <div id="hiddenWorkshops" class="space-y-4 mt-4 hidden">
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-      <h4 class="font-semibold text-lg">Poster presentation at UT GIS Day - 2022</h4>
+
+  <!-- AAG - 2023 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/AAG - 2023.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
+      <h4 class="font-semibold text-lg">Poster Presentation at AAG - 2023</h4>
+      <p class="text-gray-600 dark:text-gray-300">The American Association of Geographers</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Title: Microscale impacts assessment of urban expansion on seasonal urban heat island intensity using neural network algorithms<br>
+        Denver, CO | March 23–27, 2023
+      </p>
+    </div>
+  </div>
+
+  <!-- UT GIS Day - 2022 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/UT GIS Day - 2022.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
+      <h4 class="font-semibold text-lg">Poster Presentation at UT GIS Day - 2022</h4>
       <p class="text-gray-600 dark:text-gray-300">The University of Texas at Austin</p>
-      <p class="italic">Title: Modelling microscale impacts assessment of urban expansion on seasonal surface urban heat island intensity using neural network algorithms</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Austin, TX | November 2022</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Title: Modelling microscale impacts assessment of urban expansion on seasonal surface urban heat island intensity using neural network algorithms<br>
+        Austin, TX | November 2022
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- ICLEI - 2022 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/ICLEI - 2022.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">ICLEI World Congress - 2022</h4>
-      <p class="text-gray-600 dark:text-gray-300">Hosted by ICLEI - Local Governments for Sustainability and the City of City of Malmö, Sweden</p>
-      <ul class="list-disc ml-5 text-sm">
-        <li>A major international event that brings together local and regional leaders including experts and practitioners from more than 1,750 cities, towns, and regions, to discuss and promote sustainable urban development.</li>
-      </ul>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Malmö, Sweden | May 11-13, 2022</p>
+      <p class="text-gray-600 dark:text-gray-300">Hosted by ICLEI & City of Malmö, Sweden</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        A major international event that brings together 1,750+ cities and regions to promote sustainable urban development.<br>
+        Malmö, Sweden | May 11–13, 2022
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- School of Climate Change - 2021 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/School of Climate Change.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">School of Climate Change 2021</h4>
       <p class="text-gray-600 dark:text-gray-300">Organized by Oxford Climate Society</p>
-      <ul class="list-disc ml-5 text-sm">
-        <li>Gained comprehensive understanding of climate science.</li>
-        <li>Learned about climate change mitigation strategies.</li>
-        <li>Acquired knowledge of international climate policies.</li>
-      </ul>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Oxford, England, UK | September 2021 – December 2021</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Gained understanding of climate science, mitigation strategies, and international climate policies.<br>
+        Oxford, England, UK | September–December 2021
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- Geoinformatics Summer School - 2021 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/Geoinformatics Summer School.jpg" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">Geoinformatics Summer School - 2021</h4>
-      <p class="text-gray-600 dark:text-gray-300">Laboratory of Information Engineering in Surveying, Mapping and Remote Sensing (LIESMARS), Wuhan University, China</p>
-      <ul class="list-disc ml-5 text-sm">
-        <li>The summer school course covered fundamental concepts, methodologies, and technologies in Multi-temporal SAR Interferometry for Disaster Mitigation, Machine Learning & Social Sensing, Geospatial Big Data Computing and Disaster Management.</li>
-      </ul>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Wuhan, China | August 23-31, 2021</p>
+      <p class="text-gray-600 dark:text-gray-300">LIESMARS, Wuhan University, China</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Covered SAR Interferometry, Machine Learning, Geospatial Big Data, and Disaster Management.<br>
+        Wuhan, China | August 23–31, 2021
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- GIS Training - 2020 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/GIS Training - 2020.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">21 Days GIS Training Programme using QGIS - 2020</h4>
-      <p class="text-gray-600 dark:text-gray-300">Department of Geography, School of Earth Sciences, Central University of Karnataka, India, Jointly with State Institute of Urban Development</p>
-      <ul class="list-disc ml-5 text-sm">
-        <li>Contents include Data Management, Spatial Analysis, analysis and interpretation of spatial data, and Mapping in QGIS platform.</li>
-      </ul>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Karnataka, India | July13 – August 2, 2020</p>
+      <p class="text-gray-600 dark:text-gray-300">Central University of Karnataka & State Institute of Urban Development</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Data management, spatial analysis, and mapping in QGIS platform.<br>
+        Karnataka, India | July 13 – August 2, 2020
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- International Geoinformatics Summer School - 2018 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/International Geoinformatics Summer School.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">International Geoinformatics Summer School - 2018</h4>
-      <p class="text-gray-600 dark:text-gray-300">Laboratory of Information Engineering in Surveying, Mapping and Remote Sensing (LIESMARS), Wuhan University, China</p>
-      <ul class="list-disc ml-5 text-sm">
-        <li>Paper Presentation: Modelling future land use land cover changes and their impacts on land surface temperatures in Rajshahi, Bangladesh.</li>
-        <li>Lectures by experts and hands-on sessions related to fundamental concepts, methodologies, and advanced technologies in remote sensing, 3d modelling, spatial statistics, and big data analysis.</li>
-      </ul>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Wuhan, China | July 1-8, 2018</p>
+      <p class="text-gray-600 dark:text-gray-300">LIESMARS, Wuhan University, China</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Paper Presentation: Modeling future land use and land surface temperature changes in Rajshahi, Bangladesh.<br>
+        Wuhan, China | July 1–8, 2018
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- GIS Programming Workshop - 2017 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/GIS Programming Workshop.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">Workshop on GIS Programming & Algorithm - 2017</h4>
-      <p class="text-gray-600 dark:text-gray-300">Bangladesh Institute of Planners (BIP)., Dhaka, Bangladesh</p>
-      <ul class="list-disc ml-5 text-sm">
-        <li>The workshop covered hands on training on Python scripting in GIS, interact with spatial databases and GIS application development.</li>
-      </ul>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Dhaka, Bangladesh | Dec 24-25, 2017</p>
+      <p class="text-gray-600 dark:text-gray-300">Bangladesh Institute of Planners (BIP)</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Python scripting in GIS, spatial databases, and GIS application development.<br>
+        Dhaka, Bangladesh | December 24–25, 2017
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- Multidisciplinary GIS Workshop - 2015 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/Multidisciplinary GIS Workshop.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">Workshop on Multidisciplinary Application of GIS</h4>
-      <p class="text-gray-600 dark:text-gray-300">Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology – Rajshahi, Bangladesh</p>
-      <ul class="list-disc ml-5 text-sm">
-        <li>The workshop covered the use of GIS for planning and development, zoning, transportation planning, demographic analysis, habitat mapping, climate change modeling, tracking biodiversity, and environmental impact assessment.</li>
-      </ul>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Rajshahi, Bangladesh | December 24-25, 2015</p>
+      <p class="text-gray-600 dark:text-gray-300">Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Covered GIS use for planning, zoning, transportation, demographics, biodiversity, and environmental modeling.<br>
+        Rajshahi, Bangladesh | December 24–25, 2015
+      </p>
     </div>
-    
-    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+  </div>
+
+  <!-- Principles of GIS and Remote Sensing - 2015 -->
+  <div class="flex gap-4 bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg shadow-sm">
+<img src="/site-assets/Principles of GIS and Remote Sensing.png" alt="American Geographical Society" class="rounded-md w-28 h-28 object-contain bg-gray-100" />
+    <div>
       <h4 class="font-semibold text-lg">Workshop on Principles of GIS and Remote Sensing</h4>
-      <p class="text-gray-600 dark:text-gray-300">Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology – Rajshahi, Bangladesh</p>
-      <ul class="list-disc ml-5 text-sm">
-        <li>The workshop covered GIS practical exercises, satellite image analysis, GIS and remote sensing integration.</li>
-      </ul>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Rajshahi, Bangladesh | May 2-4, 2015</p>
+      <p class="text-gray-600 dark:text-gray-300">Department of Urban and Regional Planning, Rajshahi University of Engineering & Technology</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        GIS practical exercises, satellite image analysis, and GIS–RS integration.<br>
+        Rajshahi, Bangladesh | May 2–4, 2015
+      </p>
     </div>
   </div>
-  
-  <div class="flex justify-center mt-6">
-    <button id="showMoreWorkshopsBtn" class="bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-lg transition-colors">
-      Show More Workshops
-    </button>
-  </div>
+
 </section>
 
 <section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="services">
@@ -797,40 +1129,54 @@
 
 <div class="flex flex-col gap-3" id="visiblePublications">
   <!-- Journal Articles -->
-  <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
+<details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      1. Kafy, AA., Crews, KA., Thompson, AA. (2025). Exploring the cooling potential of green roofs for mitigating diurnal heat island intensity by utilizing Lidar and Artificial Neural Network. Sustainable Cities and Society, 116, 105893.
+      1. <strong>Kafy, AA.</strong>, Crews, KA., Thompson, AA. (2025). Exploring the cooling potential of green roofs for mitigating diurnal heat island intensity by utilizing Lidar and Artificial Neural Network. <em>Sustainable Cities and Society</em>, 116, 105893.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
-  <p class="text-sm pb-2 text-blue-600 hover:underline"><a href="https://doi.org/10.1016/j.scs.2024.105893" target="_blank" rel="noopener">https://doi.org/10.1016/j.scs.2024.105893</a></p>
+  <p class="text-sm pb-2 text-blue-600 hover:underline">
+    <a href="https://doi.org/10.1016/j.scs.2024.105893" target="_blank" rel="noopener">
+      https://doi.org/10.1016/j.scs.2024.105893
+    </a>
+  </p>
+</details>
+
+
+<details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
+  <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+    <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
+      2. <strong>Kafy, AA.</strong>, Dey, NN., Saha, M., et al. (2024). Leveraging machine learning algorithms in dynamic modeling of urban expansion, surface heat islands, and carbon storage for sustainable environmental management in coastal ecosystems. <em>Journal of Environmental Management</em>, 370, 122427.
+    </p>
+    <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
+  </summary>
+  <p class="text-sm pb-2 text-blue-600 hover:underline">
+    <a href="https://doi.org/10.1016/j.jenvman.2024.122427" target="_blank" rel="noopener">
+      https://doi.org/10.1016/j.jenvman.2024.122427
+    </a>
+  </p>
+</details>
 </details>
 
 <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      2. Kafy, AA., Dey, NN., Saha, M., et al. (2024). Leveraging machine learning algorithms in dynamic modeling of urban expansion, surface heat islands, and carbon storage for sustainable environmental management in coastal ecosystems. Journal of Environmental Management, 370, 122427.
+      3.AlRifai, MH.<strong>, Kafy, AA. </strong>, & Altuwaijri, HA. (2025). Quantitative Assessment of Flood Risk Through Multi Parameter Morphometric Analysis and GeoAI: A GIS-Based Study of Wadi Ranuna Basin in Saudi Arabia. <em>Water</em>, 17(14), 2108.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
-  <p class="text-sm pb-2 text-blue-600 hover:underline"><a href="https://doi.org/10.1016/j.jenvman.2024.122427" target="_blank" rel="noopener">https://doi.org/10.1016/j.jenvman.2024.122427</a></p>
+  <p class="text-sm pb-2 text-blue-600 hover:underline">
+    <a href="https://doi.org/10.3390/w17142108" target="_blank" rel="noopener">
+      https://doi.org/10.3390/w17142108
+    </a>
+  </p>
 </details>
 
 <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      3. AlRifai, MH., Kafy, AA., & Altuwaijri, HA. (2025). Quantitative Assessment of Flood Risk Through Multi Parameter Morphometric Analysis and GeoAI: A GIS-Based Study of Wadi Ranuna Basin in Saudi Arabia. Water, 17(14), 2108.
-    </p>
-    <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
-  </summary>
-  <p class="text-sm pb-2 text-blue-600 hover:underline"><a href="https://doi.org/10.3390/w17142108" target="_blank" rel="noopener">https://doi.org/10.3390/w17142108</a></p>
-</details>
-
-<details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
-  <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
-    <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      4. Altuwaijri, HA., Kafy, AA. (2025). Decoding atmospheric thermal exposure patterns with implications for environmental health and urban air quality over forty years in arid regions. Air Quality, Atmosphere & Health, 18, 2405–2430.
+     4. Altuwaijri, HA.,<strong>Kafy, AA.</strong>, (2025). Decoding atmospheric thermal exposure patterns with implications for environmental health and urban air quality over forty years in arid regions. Air Quality, Atmosphere & Health, 18, 2405–2430.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
@@ -840,7 +1186,7 @@
 <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      5. Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Predicting Spatiotemporal Dynamics of Land Use Influenced Thermal Patterns Using Remote Sensing-based Machine Learning Algorithms. Rangeland Ecology & Management, 103, 8–27.
+      5. Altuwaijri, HA., <strong>Kafy, AA.</strong>,, AA., Rahaman, ZA., et al. (2025). Predicting Spatiotemporal Dynamics of Land Use Influenced Thermal Patterns Using Remote Sensing-based Machine Learning Algorithms. Rangeland Ecology & Management, 103, 8–27.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
@@ -850,7 +1196,7 @@
 <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      6. Altuwaijri, HA., Kafy, AA., Rahaman, ZA. (2025). Multi-temporal remote sensing and geospatial analysis for urban ecosystem service dynamics: A three-decade assessment of land surface transformation in Jeddah, Saudi Arabia. Physics and Chemistry of the Earth, Parts A/B/C, 139, 103892.
+      6. Altuwaijri, HA., <strong>Kafy, AA.</strong>, Rahaman, ZA. (2025). Multi-temporal remote sensing and geospatial analysis for urban ecosystem service dynamics: A three-decade assessment of land surface transformation in Jeddah, Saudi Arabia. Physics and Chemistry of the Earth, Parts A/B/C, 139, 103892.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
@@ -860,7 +1206,7 @@
 <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      7. Altuwaijri, HA., Kafy, AA., Rahaman, ZA., et al. (2025). Biophysical parameters and land surface temperature dynamics in arid urban environments: A comprehensive machine learning approach. Environmental Earth Sciences, 84(15), 434.
+      7. Altuwaijri, HA., <strong>Kafy, AA.</strong>, Rahaman, ZA., et al. (2025). Biophysical parameters and land surface temperature dynamics in arid urban environments: A comprehensive machine learning approach. Environmental Earth Sciences, 84(15), 434.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
@@ -870,7 +1216,7 @@
 <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      8. Miah, M.T., Fariha, J.N., Kafy, A.A. et al. (2025). Geostatistical assessment of spatial climate dynamics using mono window machine learning algorithm for decoding land cover and demographic shifts influence on thermal environment. Theoretical and Applied Climatology, 156, 544.
+      8. Miah, M.T., Fariha, J.N., <strong>Kafy, AA.</strong>,. et al. (2025). Geostatistical assessment of spatial climate dynamics using mono window machine learning algorithm for decoding land cover and demographic shifts influence on thermal environment. Theoretical and Applied Climatology, 156, 544.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
@@ -880,7 +1226,7 @@
 <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      9. Salim, M. Z., Rahman, M. H., Kafy, AA, et al. (2025). Automated geospatial workflow for spatiotemporal assessment of urban expansion influence on deforestation in Northeast Florida. Kuwait Journal of Science, 100453.
+      9. Salim, M. Z., Rahman, M. H.,<strong>Kafy, AA.</strong>,, et al. (2025). Automated geospatial workflow for spatiotemporal assessment of urban expansion influence on deforestation in Northeast Florida. Kuwait Journal of Science, 100453.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
@@ -893,7 +1239,7 @@
 <details class="pub-item flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2 group" data-type="journal">
   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
     <p class="text-sm font-medium leading-normal text-text-light dark:text-text-dark">
-      10. AlDousari, A.E., Kafy, AA & Rahaman, Z.A. (2025). Unveiling the dynamic interplay of biophysical, morphological, and temperature extremes in arid regions of Kuwait: Decoding sustainable urban resilience by utilizing remote sensing techniques. Arab J Geosci 18, 131.
+      10. AlDousari, A.E.,<strong>Kafy, AA.</strong>, AA & Rahaman, Z.A. (2025). Unveiling the dynamic interplay of biophysical, morphological, and temperature extremes in arid regions of Kuwait: Decoding sustainable urban resilience by utilizing remote sensing techniques. Arab J Geosci 18, 131.
     </p>
     <span class="material-symbols-outlined text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">expand_more</span>
   </summary>
@@ -1746,171 +2092,413 @@
 </div>
 </div>
 </section>
-<section class="py-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="gallery">
-<h3 class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark px-6">Gallery</h3>
-<div class="relative px-6">
-  <!-- Left Arrow Button -->
-  <button id="galleryPrev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full shadow-lg p-2 z-10 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
-    <span class="material-symbols-outlined text-primary">chevron_left</span>
-  </button>
-  
-  <!-- Gallery Container -->
-  <div id="galleryContainer" class="flex overflow-x-auto snap-x snap-mandatory scroll-container pb-4 gap-4 px-8">
-    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-  <img src="site-assets/UT GIS Day 2024 First Price.jpg" alt="UT GIS Day 2024" class="w-full h-48 sm:h-56 object-cover">
-        <div class="p-4">
-          <h4 class="font-semibold text-primary">UT GIS Day 2024</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">First Prize poster presentation.</p>
-        </div>
-      </div>
-    </div>
-    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-      <img src="site-assets/AAG 2023.JPG" alt="AAG 2023" class="w-full h-48 sm:h-56 object-cover">
-        <div class="p-4">
-          <h4 class="font-semibold text-primary">AAG 2023</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Conference participation.</p>
-        </div>
-      </div>
-    </div>
-    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-  <img src="site-assets/Graduation Main Photo.JPG" alt="Graduation" class="w-full h-48 sm:h-56 object-cover">
-        <div class="p-4">
-          <h4 class="font-semibold text-primary">Graduation</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Masters graduation photo.</p>
-        </div>
-      </div>
-    </div>
-    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-  <img src="site-assets/ICLEI World Congress - 2022 Malmo Sweden.JPG" alt="ICLEI World Congress" class="w-full h-48 sm:h-56 object-cover">
-        <div class="p-4">
-          <h4 class="font-semibold text-primary">ICLEI World Congress 2022</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Malmo, Sweden.</p>
-        </div>
-      </div>
-    </div>
-    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-  <img src="site-assets/UT Tower.JPG" alt="UT Tower" class="w-full h-48 sm:h-56 object-cover">
-        <div class="p-4">
-          <h4 class="font-semibold text-primary">UT Tower</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">University of Texas iconic tower.</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-      <img src="site-assets/AAG 2023.JPG" alt="AAG 2023" class="w-full h-48 sm:h-56 object-cover">
-        <div class="p-4">
-          <h4 class="font-semibold text-primary">AAG 2023</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Conference participation.</p>
+<section
+  class="py-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md"
+  id="gallery"
+>
+  <h3
+    class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark px-6"
+  >
+    Moments & Milestones
+  </h3>
+
+  <!-- ===== PRESENTATION / CONFERENCE SECTION ===== -->
+  <div class="relative px-6 mb-10">
+    <h4
+      class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark px-2"
+    >
+      Presentation / Conference
+    </h4>
+
+    <div
+      id="galleryContainer1"
+      class="flex overflow-x-auto gap-4 snap-x snap-mandatory scrollbar-hide"
+    >
+      <!-- Slide -->
+      <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets/gallery/presentations/AMERICAN GEOGRAPHICAL SOCIETY Conference.jpg"
+            alt="AGS Conference"
+            class="w-full h-48 sm:h-56 object-cover"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+              AMERICAN GEOGRAPHICAL SOCIETY Conference
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets/gallery/presentations/AAG BD participents 2023.JPG"
+            alt="AAG BD participents 2023"
+            class="w-full h-48 sm:h-56 object-cover"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+              AAG BD Participents 2023
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets/gallery/presentations/AGS Conference.JPG"
+            alt="AGS Conference"
+            class="w-full h-48 sm:h-56 object-cover"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">AGS Conference</h4>
+          </div>
         </div>
       </div>
     </div>
-    
-    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-      <img src="site-assets\Photo in Austin Downtown.JPG" alt="AAG 2023" class="w-full h-48 sm:h-56 object-cover">
-        <div class="p-4">
-          <h4 class="font-semibold text-primary">AAG 2023</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Photo  in Austin Downtown.</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
-      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-      <img src="site-assets/UT Austin Campus(3).JPG" alt="UT Austin Campus" class="w-full h-48 sm:h-56 object-cover">
-        <div class="p-4">
-          <h4 class="font-semibold text-primary">UT Austin Campus</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">UT Austin campus photo.</p>
-        </div>
-      </div>
-    </div>
-    
   </div>
-  
-  <!-- Right Arrow Button -->
-  <button id="galleryNext" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full shadow-lg p-2 z-10 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
-    <span class="material-symbols-outlined text-primary">chevron_right</span>
-  </button>
-</div>
-</section>
-<section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="fieldwork">
-<section class="p-6 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="contact">
-<h3 class="text-2xl font-bold mb-4 text-center text-text-light dark:text-text-dark">Get In Touch</h3>
-<p class="text-center text-gray-500 dark:text-gray-400 mb-2">I am always open to discussing research collaborations, projects, or speaking opportunities.</p>
 
-<div class="max-w-xl mx-auto mb-6">
-  <div class="flex flex-col sm:flex-row justify-center items-center gap-4 text-center">
-    <a href="mailto:abdullaalkafy@utexas.edu" class="flex items-center text-primary hover:underline">
-      <span class="material-symbols-outlined text-xl mr-2">email</span>
-      abdullaalkafy@utexas.edu
-    </a>
-    <span class="hidden sm:inline text-gray-400">|</span>
-    <a href="mailto:abdulla-al.kafy@localpathways.org" class="flex items-center text-primary hover:underline">
-      <span class="material-symbols-outlined text-xl mr-2">alternate_email</span>
-      abdulla-al.kafy@localpathways.org
-    </a>
+  <!-- ===== AWARDS SECTION ===== -->
+  <div class="relative px-6 mb-10">
+    <h4
+      class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark px-2"
+    >
+      Awards
+    </h4>
+
+    <div id="galleryContainer2"      class="flex overflow-x-auto gap-4 snap-x snap-mandatory scrollbar-hide">
+      <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets/gallery/awards/UT GIS daya 2024 First Price.jpg"
+            alt="UT GIS Daya 2024 First Prize"
+            class="w-full h-48 sm:h-56 object-contain bg-gray-100"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+              UT GIS Daya 2024 – First Prize
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets\gallery\awards\AMERICAN GEOGRAPHICAL SOCIETY CONFERENCE PARTICIPATION AS COUNCIL FELLOW.jpg"
+            alt="UT GIS Daya 2024 First Prize"
+            class="w-full h-48 sm:h-56 object-contain bg-gray-100"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+              AMERICAN GEOGRAPHICAL SOCIETY CONFERENCE PARTICIPATION AS COUNCIL FELLOW.
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets/gallery/awards/SWAAG Conference .jpg"
+            alt="SWAAG Conference"
+            class="w-full h-48 sm:h-56 object-contain bg-gray-100"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+          SWAAG Conferences   </h4>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="text-center text-gray-500 dark:text-gray-400 mt-4">
-    Liberal Arts Building, 305 E 23rd St, Austin, TX 78712
-  </p>
+
+  <!-- ===== GRADUATION SECTION ===== -->
+  <div class="relative px-6 mb-10">
+    <h4
+      class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark px-2"
+    >
+      Graduation
+    </h4>
+
+    <div id="galleryContainer3" class="flex overflow-x-auto gap-4 snap-x snap-mandatory scrollbar-hide">
+      <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets\gallery\graduation\Bachelor Graduation RUET.JPG"
+            alt="Graduation 2023"
+            class="w-full h-48 sm:h-56 object-contain bg-gray-100"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+              Bachelor Graduation RUET
+            </h4>
+          </div>
+        </div>
+      </div>
+
+       <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets\gallery\graduation\Bachelor Graduation RUET(5).JPG"
+            alt="Graduation 2023"
+            class="w-full h-48 sm:h-56 object-contain bg-gray-100"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+              Bachelor Graduation RUET
+            </h4>
+          </div>
+        </div>
+      </div>
+
+       <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets\gallery\graduation\IMG_1874.JPG"
+            alt="Graduation 2023"
+           class="w-full h-48 sm:h-56 object-contain bg-gray-100"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+              Graduation Ceremony 2023
+            </h4>
+          </div>
+        </div>
+      </div>
+
+       <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets\gallery\graduation\Masters Graduation Photo 1.jpg"
+            alt="Graduation 2023"
+            class="w-full h-48 sm:h-56 object-contain bg-gray-100"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+             Masters Graduation RUET
+            </h4>
+          </div>
+        </div>
+      </div>
+
+
+       <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+        <div
+          class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark"
+        >
+          <img
+            src="site-assets\gallery\graduation\MS Graduation 2024.JPG"
+            alt="Graduation 2023"
+            class="w-full h-48 sm:h-56 object-contain bg-gray-100"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-primary">
+              Masters Graduation RUET
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== OTHERS SECTION ===== -->
+ <!-- ===== OTHERS SECTION ===== -->
+<div class="relative px-6 mb-6">
+  <h4 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark px-2">Others</h4>
+
+  <div id="galleryContainer4" class="flex overflow-x-auto gap-4 snap-x snap-mandatory scrollbar-hide">
+    
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/AAG 2023 Poster Presentataion.jpg" alt="AAG 2023 Poster Presentataion" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">AAG 2023 Poster Presentataion</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/Fairwell from ICLEI South Asia(1).JPG" alt="Fairwell from ICLEI South Asia" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">Fairwell from ICLEI South Asia</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/ICLEI South Asia Office in Rajshahi.JPG" alt="ICLEI South Asia Office in Rajshahi" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">ICLEI South Asia Office in Rajshahi</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/ICLEI World Congress - 2022 Malmo Sweden with BD Country Representataive.JPG" alt="ICLEI World Congress - 2022 Malmo Sweden with BD Country Representataive" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">ICLEI World Congress - 2022 Malmo Sweden with BD Country Representataive</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/ICLEI World Congress - 2022 Malmo Sweden(8).JPG" alt="ICLEI World Congress - 2022 Malmo Sweden (8)" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">ICLEI World Congress - 2022 Malmo Sweden (8)</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/ICLEI World Congress - 2022 Malmo Sweden(9).JPG" alt="ICLEI World Congress - 2022 Malmo Sweden (9)" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">ICLEI World Congress - 2022 Malmo Sweden (9)</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/International Geoinformatics Summer School - 2018 Wuhan China.JPG" alt="International Geoinformatics Summer School - 2018 Wuhan China" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">International Geoinformatics Summer School - 2018 Wuhan China</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/My Masters and PhD dEPARTMENT.JPG" alt="My Masters and PhD Department" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">My Masters and PhD Department</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/Photo in Austin Downtown.JPG" alt="Photo in Austin Downtown" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">Photo in Austin Downtown</h4>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/Poster Presentataion at AAG 2023.jpg" alt="Poster Presentataion at AAG 2023" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">Poster Presentataion at AAG 2023</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/Preseinating Research Paper in International Geoinformatics Summer School - 2018.JPG" alt="Preseinating Research Paper in International Geoinformatics Summer School - 2018" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">Preseinating Research Paper in International Geoinformatics Summer School - 2018</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-72 sm:w-80 md:w-96 snap-center">
+      <div class="bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-border-light dark:border-border-dark">
+        <img src="site-assets/gallery/others/Wuhan China.JPG" alt="Wuhan China" class="w-full h-48 sm:h-56 object-contain bg-gray-100" />
+        <div class="p-4">
+          <h4 class="font-semibold text-primary">Wuhan China</h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="flex flex-wrap justify-center gap-3 mb-6">
-  <a href="https://liberalarts.utexas.edu/geography/gradstudents/ak48749" target="_blank" class="flex items-center justify-center rounded-lg px-4 py-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-    <span class="material-symbols-outlined mr-2">school</span>
-    University Profile
-  </a>
-  <a href="https://www.linkedin.com/in/abdulla-alkafy/" target="_blank" class="flex items-center justify-center rounded-lg px-4 py-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-    <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-    LinkedIn
-  </a>
-  <a href="https://scholar.google.com/citations?user=vkBgMkIAAAAJ&hl=en" target="_blank" class="flex items-center justify-center rounded-lg px-4 py-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-    <span class="material-symbols-outlined mr-2">article</span>
-    Google Scholar
-  </a>
-  <a href="https://www.researchgate.net/profile/Abdulla-Al-Kafy-2" target="_blank" class="flex items-center justify-center rounded-lg px-4 py-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-    <span class="material-symbols-outlined mr-2">hub</span>
-    ResearchGate
-  </a>
 </div>
 
-<form action="#" class="max-w-xl mx-auto space-y-4">
-<div>
-<label class="sr-only" for="name">Name</label>
-<input class="w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="name" name="name" placeholder="Your Name" type="text"/>
-</div>
-<div>
-<label class="sr-only" for="email">Email</label>
-<input class="w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="email" name="email" placeholder="Your Email" type="email"/>
-</div>
-<div>
-<label class="sr-only" for="message">Message</label>
-<textarea class="w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="message" name="message" placeholder="Your Message" rows="4"></textarea>
-</div>
-<div class="text-center">
-<button class="flex min-w-[150px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] mx-auto shadow-md hover:opacity-90 transition-opacity" type="submit">
-<span class="truncate">Send Message</span>
-</button>
-</div>
-</form>
 </section>
-</main>
-</div>
-<a class="fixed bottom-5 right-5 bg-primary text-white p-3 rounded-full shadow-lg hover:opacity-90 transition-opacity" href="#hero">
-<span class="material-symbols-outlined">arrow_upward</span>
-</a>
-<!-- Left edge toggle button: appears when sidebar is collapsed -->
-<button id="sidebarEdgeToggle" aria-label="Open sidebar" class="fixed top-1/2 left-0 -translate-y-1/2 hidden items-center justify-center p-2 rounded-r-md bg-primary text-white shadow-lg z-50">
-  <span class="material-symbols-outlined">menu</span>
-</button>
-</div>
+
+<section class="py-10 bg-card-light dark:bg-card-dark rounded-xl shadow-md" id="fieldwork">
+  <div class="max-w-screen-lg mx-auto">
+    
+    <section class="p-6 rounded-xl shadow-md bg-[#BF5701] text-white" id="contact">
+      <h3 class="text-2xl font-bold mb-4 text-center">Get In Touch</h3>
+      <p class="text-center text-gray-200 mb-4">
+        I am always open to discussing research collaborations, projects, or speaking opportunities.
+      </p>
+
+      <!-- Contact Info -->
+      <div class="max-w-xl mx-auto mb-6">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 text-center">
+          <a href="mailto:abdullaalkafy@utexas.edu" class="flex items-center hover:underline">
+            <span class="material-symbols-outlined text-xl mr-2">email</span>
+            abdullaalkafy@utexas.edu
+          </a>
+          <span class="hidden sm:inline text-gray-300">|</span>
+          <a href="mailto:abdulla-al.kafy@localpathways.org" class="flex items-center hover:underline">
+            <span class="material-symbols-outlined text-xl mr-2">alternate_email</span>
+            abdulla-al.kafy@localpathways.org
+          </a>
+        </div>
+        <p class="text-center text-gray-200 mt-4">
+          Liberal Arts Building, 305 E 23rd St, Austin, TX 78712
+        </p>
+      </div>
+
+      <!-- Social Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <a href="https://liberalarts.utexas.edu/geography/gradstudents/ak48749" target="_blank" class="flex items-center justify-center rounded-lg px-4 py-2 bg-white/10 hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined mr-2">school</span> University Profile
+        </a>
+        <a href="https://www.linkedin.com/in/abdulla-alkafy/" target="_blank" class="flex items-center justify-center rounded-lg px-4 py-2 bg-white/10 hover:bg-white/20 transition-colors">
+          <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 ..."></path>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://scholar.google.com/citations?user=vkBgMkIAAAAJ&hl=en" target="_blank" class="flex items-center justify-center rounded-lg px-4 py-2 bg-white/10 hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined mr-2">article</span> Google Scholar
+        </a>
+        <a href="https://www.researchgate.net/profile/Abdulla-Al-Kafy-2" target="_blank" class="flex items-center justify-center rounded-lg px-4 py-2 bg-white/10 hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined mr-2">hub</span> ResearchGate
+        </a>
+      </div>
+
+
+    </section>
+  </div>
+</section>
+
 
 <script>
   // Mobile Menu Toggle and Page Features
@@ -2128,31 +2716,71 @@
     }
   });
 </script>
-<!-- Sidebar toggle script -->
+<!-- Sidebar is static now; collapse/edge toggle script removed. -->
+<style>
+  /* Make all text inside the contact section white */
+  #contact,
+  #contact * {
+    color: white !important;
+  }
+
+  /* Keep form fields readable */
+  #contact input,
+  #contact textarea {
+    color: black !important;
+    background-color: #fff !important;
+  }
+
+  #contact input::placeholder,
+  #contact textarea::placeholder {
+    color: #666 !important;
+  }
+</style>
+
+<!-- Highlight Abdullah Al Kafy (only his name or initials).
+     This script is idempotent: it first removes any existing <strong> tags
+     inside publication lines (to clear misplaced bolding), then wraps only
+     the matched name/initials with a styled span. It marks processed
+     paragraphs with a data attribute to avoid repeated work. -->
 <script>
-  (function(){
-    const storageKey = 'site_sidebar_collapsed';
-    const btn = document.getElementById('sidebarToggle');
-    const icon = document.getElementById('sidebarToggleIcon');
-    function setCollapsed(collapsed){
-      try{ if(collapsed) document.body.classList.add('sidebar-collapsed'); else document.body.classList.remove('sidebar-collapsed'); }catch(e){}
-      if(icon) icon.textContent = collapsed ? 'chevron_right' : 'chevron_left';
-  if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
-  try{ const btnExt = document.getElementById('sidebarToggleExternal'); if(btnExt) btnExt.setAttribute('aria-expanded', String(!collapsed)); }catch(e){}
-  try{ const btnEdge = document.getElementById('sidebarEdgeToggle'); if(btnEdge) btnEdge.setAttribute('aria-expanded', String(!collapsed)); }catch(e){}
-      try{ localStorage.setItem(storageKey, collapsed ? '1' : '0'); }catch(e){}
-    }
-    // initialize
-    try{
-      const stored = localStorage.getItem(storageKey);
-      setCollapsed(stored === '1');
-    }catch(e){ setCollapsed(false); }
-  // Also attach the external toggles (header and edge) so user can re-open when sidebar is collapsed
-  const btnExternal = document.getElementById('sidebarToggleExternal');
-  const btnEdge = document.getElementById('sidebarEdgeToggle');
-  if(btn){ btn.addEventListener('click', function(){ setCollapsed(!document.body.classList.contains('sidebar-collapsed')); }); }
-  if(btnExternal){ btnExternal.addEventListener('click', function(){ setCollapsed(!document.body.classList.contains('sidebar-collapsed')); }); }
-  if(btnEdge){ btnEdge.addEventListener('click', function(){ setCollapsed(!document.body.classList.contains('sidebar-collapsed')); }); }
-  })();
+(function(){
+  try{
+    const selector = '#visiblePublications .pub-item summary p, #hiddenPublications .pub-item summary p, #visiblePublications .pub-item > p, #hiddenPublications .pub-item > p, #publications .pub-item summary p, #publications .pub-item > p';
+
+    // Patterns to match full-name variants and initials (case-insensitive)
+    const nameRegexes = [
+      /\b(?:Abdulla|Abdullah)\s+Al\s+Kafy\b/ig,
+      /\bKafy,?\s*A\.?\s*A\.?\b/ig,
+      /\bKafy,?\s*A\.?\b/ig
+    ];
+
+    document.querySelectorAll(selector).forEach(p => {
+      try{
+        // Idempotency guard
+        if (p.dataset.kafyProcessed) return;
+
+        let html = p.innerHTML;
+
+        // Remove any existing <strong> wrappers to avoid leaving other text bold
+        html = html.replace(/<\/?strong[^>]*>/gi, '');
+
+        // Apply replacements for each regex
+        nameRegexes.forEach(re => {
+          html = html.replace(re, function(match){
+            return '<span class="kafy-highlight font-semibold text-primary">' + match + '</span>';
+          });
+        });
+
+        p.innerHTML = html;
+        p.dataset.kafyProcessed = '1';
+      }catch(e){
+        // swallow per-paragraph errors to avoid breaking the page
+      }
+    });
+  }catch(e){
+    // swallow errors
+  }
+})();
 </script>
+
 </body></html>
