@@ -23,6 +23,86 @@ python -m http.server 8000
 # then open http://localhost:8000/index.html
 ```
 
+## Adding images to every section (how-to + examples)
+
+A short, copy-pasteable guide for adding images to each section of the page. Put all source image files in `site-assets/` and reference them with relative paths (example: `site-assets/my-image.jpg`). Keep filenames URL-friendly (lowercase, hyphen-separated, no spaces).
+
+Guidelines (quick):
+- Place images in `site-assets/` (or a subfolder like `site-assets/gallery/`).
+- Preferred formats: WebP for modern browsers, fallback JPEG/PNG when needed.
+- Provide a meaningful `alt` attribute for accessibility.
+- Use `loading="lazy"` on non-critical images (gallery, long lists).
+- Optimize/rescale images for web (max widths: 1200px for hero, 800px for inline, 400px thumbnails).
+
+Examples
+
+1) Hero / Profile image (top of page)
+
+HTML snippet (use as background or <img>):
+
+```html
+<!-- background-image (used in this site) -->
+<div class="bg-center bg-no-repeat bg-cover rounded-full w-40 h-40" 
+     style="background-image: url('site-assets/main-profile-photo.jpg');"
+     role="img" aria-label="Headshot of Abdulla Al Kafy"></div>
+
+<!-- or an <img> tag for better semantics -->
+<img src="site-assets/main-profile-photo.jpg" alt="Headshot of Abdulla Al Kafy" class="rounded-full w-40 h-40 object-cover"/>
+```
+
+2) Section background image (hero, gallery panels)
+
+```html
+<section id="hero" class="py-8 text-white" style="background-image: url('site-assets/hero-bg.webp'); background-size: cover; background-position: center;">
+  <div class="backdrop-brightness-75 p-6"> ... content ... </div>
+</section>
+```
+
+3) Inline content image (inside a section)
+
+```html
+<p>Here is a figure explaining the method:</p>
+<figure class="mt-4">
+  <img src="site-assets/figures/method-plot.webp" alt="Overview of GeoAI pipeline" class="w-full max-w-xl object-contain" loading="lazy">
+  <figcaption class="text-sm text-gray-600">Figure 1 — GeoAI pipeline overview.</figcaption>
+</figure>
+```
+
+4) Gallery grid (thumbnails + lightbox)
+
+```html
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+  <a href="site-assets/gallery/photo-full-01.webp" class="gallery-link">
+    <img src="site-assets/gallery/photo-thumb-01.jpg" alt="Study area overview" class="w-full h-32 object-cover" loading="lazy">
+  </a>
+  <!-- repeat -->
+</div>
+```
+
+Accessibility & alt text
+- Alt text should be concise and meaningful (describe the image purpose, not decorative details).
+- If the image is purely decorative, use `alt=""` and add `aria-hidden="true"` if appropriate.
+
+Responsive images & performance
+- Consider `srcset` and `sizes` for hero/large images to serve appropriate resolutions. Example:
+
+```html
+<img src="site-assets/hero-800.jpg"
+     srcset="site-assets/hero-400.jpg 400w, site-assets/hero-800.jpg 800w, site-assets/hero-1200.jpg 1200w"
+     sizes="(max-width: 640px) 90vw, 1200px"
+     alt="Aerial view of study city" loading="lazy">
+```
+
+Quick optimization checklist
+- Use tools (ImageMagick, Squoosh, or an automated pipeline) to convert to WebP and produce sensible sizes.
+- Add `loading="lazy"` to gallery and non-critical images.
+- Use `object-fit: cover` (Tailwind `object-cover`) for consistent thumbnails.
+
+If you'd like, I can:
+- Add a small `site-assets/figures/` and `site-assets/gallery/` structure and rename current images to URL-friendly names.
+- Replace a few example images in-place and show you the before/after HTML.
+
+
 ## Quick checklist / priorities for future improvements
 Below are prioritized items with concrete steps, estimated effort, and acceptance criteria.
 
