@@ -1,6 +1,6 @@
 # Abdulla Al Kafy — Personal Academic Portfolio
 
-This repository contains a static HTML/CSS/JS single-page academic portfolio for Dr. Abdulla Al Kafy. The site is implemented as plain HTML with Tailwind CSS via CDN and some lightweight inline JavaScript for UI interactions (mobile menu, gallery, publication toggles, filters).
+This repository contains a static HTML/CSS/JS single-page academic portfolio for Abdulla Al Kafy. The site is implemented as plain HTML with Tailwind CSS via CDN and some lightweight inline JavaScript for UI interactions (mobile menu, gallery, publication toggles, filters).
 
 ## Status (Oct 23, 2025)
 - Primary site files: `index.html`, `code.html` (both are variants of the same page).
